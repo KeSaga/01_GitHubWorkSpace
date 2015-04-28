@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "学习文档", "学习文档", "{ECC68EF2-F467-4154-87FF-9C991FC7EABD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartyInvites", "PartyInvites\PartyInvites.csproj", "{D7B5C3F6-3666-4BF1-A986-7B3841BACAF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRazorEG", "MyRazorEG\MyRazorEG.csproj", "{2F138D85-E366-4456-B174-DF108ADDD69A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7B5C3F6-3666-4BF1-A986-7B3841BACAF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7B5C3F6-3666-4BF1-A986-7B3841BACAF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7B5C3F6-3666-4BF1-A986-7B3841BACAF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7B5C3F6-3666-4BF1-A986-7B3841BACAF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F138D85-E366-4456-B174-DF108ADDD69A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F138D85-E366-4456-B174-DF108ADDD69A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F138D85-E366-4456-B174-DF108ADDD69A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F138D85-E366-4456-B174-DF108ADDD69A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D7B5C3F6-3666-4BF1-A986-7B3841BACAF0} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
+		{2F138D85-E366-4456-B174-DF108ADDD69A} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
+	EndGlobalSection
+EndGlobal

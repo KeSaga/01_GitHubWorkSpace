@@ -1,0 +1,46 @@
+﻿@model PartyInvites.Models.GusetResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+</head>
+<body>
+    <!--下面这段处理发送 email 的 Razor 代码块一般会被放在一个动作方法中实现，为了方便，该示例将其实现在此处。-->
+    @{
+        try
+        {
+            WebMail.SmtpServer = "smtp.example.com";
+            WebMail.SmtpPort = 587;
+            WebMail.EnableSsl = true;
+            WebMail.UserName = "mySmtpUsername";
+            WebMail.Password = "mySmtpPassword";
+            WebMail.From = "rsvps@example.com";
+
+            WebMail.Send("party-host#example.com", "RSVP Notification", Model.Name + "is" + ((Model.WillAttend ?? false) ? "" : "not") + "attending");
+        }
+        catch (Exception)
+        {
+            @:<b>Sorry - we couldn't send the email to confirm your RSVP.</b>
+        }
+    }
+    <div>
+        <!--通过 Model.<属性名> 的方式访问当前域对象中某个属性的值。-->
+        <h1>Thank you, @Model.Name!</h1>
+        @if (Model.WillAttend == true)
+        {
+            @:It's great that you're coming. The drinks are already in the fridge!
+        }
+        else
+        {
+            @:Sorry to hear that you can't make it, but thanks for letting us know.
+        }
+    </div>
+</body>
+</html>

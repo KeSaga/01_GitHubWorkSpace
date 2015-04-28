@@ -1,0 +1,20 @@
+﻿@model MyRazorEG.Models.Product
+
+@{
+    ViewBag.Title = "Product Name";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        Product Name:@Model.Name
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿<!--下面花括号内是一个由 Razor 视图引擎来解释的代码块。-->
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @ViewBag.Greeting World(from the view)
+        <p>We're going to have an exciting party.<br/>
+        (此处可做：要使效果更好，可以添加图片或其他信息)
+        </p>
+        <!--链接动作方法-->
+        @Html.ActionLink("RSVP Now","RsvpForm");
+    </div>
+</body>
+</html>

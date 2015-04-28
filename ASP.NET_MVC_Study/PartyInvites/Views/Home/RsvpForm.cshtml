@@ -1,0 +1,47 @@
+﻿@model PartyInvites.Models.GusetResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <title>RsvpForm</title>
+</head>
+<body>
+    <div>
+        <!--辅助器方法 Html.BeginForm 在这里是实现生成一个回递给动作方法的 HTML 表单元素（<form>元素）。
+            这里未给 BeginForm 传递任何参数，但该方法便会自动假设用户是想回递给同样的 URL 。-->
+        <!--这里将辅助器方法 Html.BeginForm 放在了 using 语句中，当超出范围时关闭 HTML 的 form 元素。这
+            与一般C#代码块中的释放对象资源有所区别。-->
+        @using (Html.BeginForm())
+        {
+            // 写法：@using (Html.BeginForm()){} 会被 HTML 辅助器方法 BeginForm 生成如下 HTML 的格式：
+            // <form action="/Home/RsvpForm" method="post">...</form>
+
+            // 使用 Html.ValidationSummary 辅助器方法实现将验证结果信息提供给用户以供参考
+            @Html.ValidationSummary()
+
+            // 在 HTML 辅助器方法 Html.TextBoxFor 中用户可以通过 lambda 表达式直接访问到 GusetResponse
+            // 模型类的每一个属性。该方法可以生产 HTML 的 input 元素，其结果类似于下面这种 HTML 方式的表
+            // 达方式：<input id="Phone" name="Phone" type="text" value="" />
+            <p>Your name: @Html.TextBoxFor(x => x.Name)</p>
+            <p>Your email: @Html.TextBoxFor(x => x.Email)</p>
+            <p>Your phone: @Html.TextBoxFor(x => x.Phone)</p>
+            <p>
+                Will you attend?
+                @Html.DropDownListFor(x => x.WillAttend, new[]
+                {
+                    new SelectListItem(){Text = "Yes, I'll be There",Value=bool.TrueString},
+                    new SelectListItem(){Text = "No, I can't come",Value=bool.FalseString}
+                }, "Choose an option")
+            </p>
+            <input type="submit" value="Submit RSVP" />
+        }
+    </div>
+</body>
+</html>
