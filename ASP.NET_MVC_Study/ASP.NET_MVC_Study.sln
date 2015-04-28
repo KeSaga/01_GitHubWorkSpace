@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "学习文档", "学习文档", "{ECC68EF2-F467-4154-87FF-9C991FC7EABD}"
+	ProjectSection(SolutionItems) = preProject
+		学习文档\000_MVC常用约定.docx = 学习文档\000_MVC常用约定.docx
+		学习文档\001_初识ASP.NET MVC架构.docx = 学习文档\001_初识ASP.NET MVC架构.docx
+		学习文档\002_Razor简介（MyRazorEG）.docx = 学习文档\002_Razor简介（MyRazorEG）.docx
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}"
 EndProject
