@@ -13,6 +13,46 @@
     <tbody>
         <tr><td>Name</td><td>@Model.Name</td></tr>
         <tr><td>Price</td><td>@Model.Price</td></tr>
-        <tr><td>Stock Level</td><td>@ViewBag.ProductCount</td></tr>
+        <tr>
+            <td>Stock Level</td>
+            <td>                
+                @switch ((int)ViewBag.ProductCount)
+                {
+                    //switch中的类型必须为 int 型，原因是在此不能求取不做转换的动态属性的值
+                    case 0:
+                        @:Out of Stock
+                        break;
+                    case 1:
+                    <b>Low Stock (@ViewBag.ProductCount)</b>
+                        break;
+                    default:
+                        @ViewBag.ProductCount
+                        break;
+                }
+                <!--使用下面的 if 语句可以实现同上一样的效果-->
+                @*@if (ViewBag.ProductCount == 0)
+                {
+                    @:Out of Stock
+                }
+                else if (ViewBag.ProductCount == 1)
+                {
+                    <b>Low Stock (@ViewBag.ProductCount)</b>
+                }
+                else
+                {
+                    @ViewBag.ProductCount
+                }*@
+            </td>
+        </tr>
     </tbody>
 </table>
+
+<!--下面使用 Razor 表达式设置元素标签属性的值-->
+<!--设置自定义标签属性（该示例为：data）-->
+<div data-discount="@ViewBag.ApplyDiscount" data-express="@ViewBag.ExpressShip" data-supplier="@ViewBag.Supplier">
+    The containing element has data attributes
+</div>
+<!--设置复选框：checkbox 的 checked 标签属性-->
+Discount:<input type="checkbox" checked="@ViewBag.ApplyDiscount" />
+Express:<input type="checkbox" checked="@ViewBag.ExpressShip" />
+Supplier:<input type="checkbox" checked="@ViewBag.Supplier" />

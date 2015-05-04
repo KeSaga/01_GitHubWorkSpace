@@ -42,5 +42,18 @@ namespace MyRazorEG.Controllers
             return View(myProduct);
         }
 
+        //创建视图时 VS 不能提供数组和集合的选项，因此需要手动输入所需要的类型细节，如这里是：MyRazorEG.Models.Product[]
+        public ActionResult DemoArray()
+        {
+            Product[] array =
+            {
+                new Product { Name = "Kayak", Price = 275M },
+                new Product { Name = "Lifejacket", Price = 48.95M },
+                new Product { Name = "Soccer ball", Price = 19.50M },
+                new Product { Name = "Corner flag", Price = 34.95M }
+            };
+            return View(array);
+        }
+
     }
 }
