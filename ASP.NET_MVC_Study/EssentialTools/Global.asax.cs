@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using EssentialTools.Infrastructure;
 
 namespace EssentialTools
 {
@@ -15,6 +16,10 @@ namespace EssentialTools
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+
+            //注册依赖解析器
+            //下面语句将 DI 放在了该程序的内核中，它实现了让 Ninject 创建 MVC 框架所需的任何对象的实例
+            DependencyResolver.SetResolver(new NinjectDependencyResolver());
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

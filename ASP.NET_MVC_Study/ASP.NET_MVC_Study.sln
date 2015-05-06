@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "学习文档", "学习文�
 		学习文档\000_MVC常用约定.docx = 学习文档\000_MVC常用约定.docx
 		学习文档\001_初识ASP.NET MVC架构.docx = 学习文档\001_初识ASP.NET MVC架构.docx
 		学习文档\002_Razor简介（MyRazorEG）.docx = 学习文档\002_Razor简介（MyRazorEG）.docx
+		学习文档\003_MVC基本工具 .docx = 学习文档\003_MVC基本工具 .docx
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}"
