@@ -14,7 +14,7 @@ namespace EssentialTools.Controllers
         //
         // GET: /Home/
 
-        private Product[] products = { 
+        private Product[] _products = { 
                                      new Product{Name="Kayak",Category="Watersports",Price=275M},
                                      new Product{Name="Lifejacket",Category="Watersports",Price =48.95M},
                                      new Product{Name="Soccer ball",Category="Soccer",Price=19.50M},
@@ -76,7 +76,7 @@ namespace EssentialTools.Controllers
 
             #endregion End 使用 Ninject （DI容器）
 
-            ShoppingCart cart = new ShoppingCart(_calc) { Products = products };
+            ShoppingCart cart = new ShoppingCart(_calc) { Products = _products };
 
             decimal totalValue = cart.CalculateProductTotal();
 
