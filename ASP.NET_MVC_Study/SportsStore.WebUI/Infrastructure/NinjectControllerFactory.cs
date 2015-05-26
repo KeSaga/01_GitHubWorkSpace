@@ -32,14 +32,16 @@ namespace SportsStore.WebUI.Infrastructure
         protected void AddBindings()
         {
             // 在这里设置绑定
-            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
+
+            // 模仿了一个存储库
+            Mock<IProductRepository> mock = new Mock<IProductRepository>();
             mock.Setup(m => m.Products).Returns(new List<Product>
             {
                 new Product { Name = "Football", Price = 25 },
                 new Product { Name = "Surf board", Price = 179 },
                 new Product { Name = "Running shoes", Price = 95 }
             }.AsQueryable());
-            _ninjectKernel.Bind<IProductsRepository>().ToConstant(mock.Object);
+            _ninjectKernel.Bind<IProductRepository>().ToConstant(mock.Object);
         }
 
 

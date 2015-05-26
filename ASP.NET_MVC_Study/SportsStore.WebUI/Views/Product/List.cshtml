@@ -1,0 +1,17 @@
+﻿@model IEnumerable<SportsStore.Domain.Entities.Product>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+@foreach (var p in Model)
+{
+    <div class="item">
+        <h3>@p.Name</h3>
+        @p.Description
+        @* 使用 ToString("c") 方式会使在转换字符串时根据服务器语言设置以不的货比形式展示结果，
+           但需要在Web.config 的 <system.web> 节点下添加节点：<globalization culture="fr-FR"
+           uiCulture="fr-FR"/> *@
+        <h4>@p.Price.ToString("c")</h4>
+    </div>
+}

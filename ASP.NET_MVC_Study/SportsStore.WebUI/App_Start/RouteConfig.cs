@@ -13,10 +13,13 @@ namespace SportsStore.WebUI
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // 修改下面的 Home 和 Index，将其分别改为要指定的默认位置，如该示例的：
+            // *** 注：其中控制器 Product 不能写成 ProductController 的形式，因为 ProductController 是类名，控制器 ***
+            // *** 要求以 Controller 结尾，但在对该控制器类引用时需要忽略类名中的 Controller 部分                  ***
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Product", action = "List", id = UrlParameter.Optional }
             );
         }
     }
