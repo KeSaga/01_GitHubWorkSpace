@@ -8,6 +8,7 @@ using System.Web.Routing;
 using Moq;
 using SportsStore.Domain.Abstract;
 using SportsStore.Domain.Entities;
+using SportsStore.Domain.Concrete;
 
 namespace SportsStore.WebUI.Infrastructure
 {
@@ -33,15 +34,18 @@ namespace SportsStore.WebUI.Infrastructure
         {
             // 在这里设置绑定
 
-            // 模仿了一个存储库
-            Mock<IProductRepository> mock = new Mock<IProductRepository>();
-            mock.Setup(m => m.Products).Returns(new List<Product>
-            {
-                new Product { Name = "Football", Price = 25 },
-                new Product { Name = "Surf board", Price = 179 },
-                new Product { Name = "Running shoes", Price = 95 }
-            }.AsQueryable());
-            _ninjectKernel.Bind<IProductRepository>().ToConstant(mock.Object);
+            //// 模仿了一个存储库
+            //Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            //mock.Setup(m => m.Products).Returns(new List<Product>
+            //{
+            //    new Product { Name = "Football", Price = 25 },
+            //    new Product { Name = "Surf board", Price = 179 },
+            //    new Product { Name = "Running shoes", Price = 95 }
+            //}.AsQueryable());
+            //_ninjectKernel.Bind<IProductRepository>().ToConstant(mock.Object);
+
+            //使用实际存储库的绑定
+            _ninjectKernel.Bind<IProductRepository>().To<EFProductRepository>();
         }
 
 
