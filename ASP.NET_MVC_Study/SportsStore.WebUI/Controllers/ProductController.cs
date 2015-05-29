@@ -10,6 +10,7 @@ namespace SportsStore.WebUI.Controllers
     public class ProductController : Controller
     {
         private IProductRepository _repository;
+        public int PageSize = 4;
 
         /// <summary>
         /// 该构造函数将允许 Ninject 在实例化这个控制器类时注入产品存储库的依赖性
@@ -20,9 +21,9 @@ namespace SportsStore.WebUI.Controllers
             this._repository = productRepository;
         }
 
-        public ViewResult List()
+        public ViewResult List(int page = 1)
         {
-            return View(_repository.Products);
+            return View(_repository.Products.OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize));
         }
 
     }
