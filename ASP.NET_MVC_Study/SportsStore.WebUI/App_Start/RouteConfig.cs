@@ -12,6 +12,12 @@ namespace SportsStore.WebUI
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            // 路由将会按照被设定的顺序进行处理，因此下面这条路由设置将优先于后面的那条
+            routes.MapRoute(
+                name: null,
+                url: "Page{page}",
+                defaults: new { controller = "Product", action = "List" }
+                );
 
             // 修改下面的 Home 和 Index，将其分别改为要指定的默认位置，如该示例的：
             // *** 注：其中控制器 Product 不能写成 ProductController 的形式，因为 ProductController 是类名，控制器 ***

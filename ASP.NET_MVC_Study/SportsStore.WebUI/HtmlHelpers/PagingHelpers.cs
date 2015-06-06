@@ -21,7 +21,7 @@ namespace SportsStore.WebUI.HtmlHelpers
         {
             StringBuilder result = new StringBuilder();
 
-            for (int i = 0; i < pagingInfo.TotalPages; i++)
+            for (int i = 1; i <= pagingInfo.TotalPages; i++)
             {
                 // 构造一个 <a> 标签
                 TagBuilder tag = new TagBuilder("a");

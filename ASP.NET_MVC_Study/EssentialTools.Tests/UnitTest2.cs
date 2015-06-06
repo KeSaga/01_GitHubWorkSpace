@@ -87,7 +87,7 @@ namespace EssentialTools.Tests
             decimal TenDollarDiscount = target.ValueProducts(createProduct(10));
             decimal FiftyDollarDiscount = target.ValueProducts(createProduct(50));
             decimal HundredDollarDiscount = target.ValueProducts(createProduct(100));
-            decimal FiveHundredDollarDiscount = target.ValueProducts(createProduct(5000));
+            decimal FiveHundredDollarDiscount = target.ValueProducts(createProduct(500));
 
             // 断言
             Assert.AreEqual(5, FiveDollarDiscount, "$5 Fail");
