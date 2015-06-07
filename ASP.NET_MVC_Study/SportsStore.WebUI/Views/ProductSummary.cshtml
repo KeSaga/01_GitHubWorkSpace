@@ -1,0 +1,8 @@
+﻿@model SportsStore.Domain.Entities.Product
+<!--分部视图：分部视图在被渲染时产生的是一个 HTML 片段，而不是整个 HTML 文档-->
+<!--分部视图是自包含文件，且可以跨视图重用-->
+<div class="item">
+    <h3>@Model.Name</h3>
+    @Model.Description
+    <h4>@Model.Price.ToString("c")</h4>
+</div>
