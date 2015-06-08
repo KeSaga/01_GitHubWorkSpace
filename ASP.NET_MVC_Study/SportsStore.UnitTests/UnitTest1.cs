@@ -35,7 +35,7 @@ namespace SportsStore.UnitTests
             // 动作
             //IEnumerable<Product> result = (IEnumerable<Product>)controller.List(2).Model;
             // 改用视图模型数据
-            ProductsListViewModel result = (ProductsListViewModel)controller.List(2).Model;
+            ProductsListViewModel result = (ProductsListViewModel)controller.List(null, 2).Model;
 
             // 断言
             Product[] prodArray = result.Products.ToArray();
@@ -66,12 +66,13 @@ namespace SportsStore.UnitTests
             MvcHtmlString result = myHelper.PageLinks(pagingInfo, pageUrlDelegate);
 
             // 断言
-            Assert.AreEqual(result.ToString(), @"<a href=""Page0"">0</a>"
-                + @"<a href=""Page1"">1</a>"
-                + @"<a class=""selected"" href=""Page2"">2</a>");
+            Assert.AreEqual(result.ToString(), @"<a href=""Page1"">1</a>"
+                + @"<a class=""selected"" href=""Page2"">2</a>"
+                + @"<a href=""Page3"">3</a>");
 
         }
 
+        [TestMethod]
         public void Can_Send_Pagination_View_Model()
         {
             // 准备
@@ -89,7 +90,7 @@ namespace SportsStore.UnitTests
             controller.PageSize = 3;
 
             // 动作
-            ProductsListViewModel result = (ProductsListViewModel)controller.List(2).Model;
+            ProductsListViewModel result = (ProductsListViewModel)controller.List(null, 2).Model;
 
             // 断言
             PagingInfo pageInfo = result.PagingInfo;
@@ -97,6 +98,32 @@ namespace SportsStore.UnitTests
             Assert.AreEqual(pageInfo.ItemsPerPage, 3);
             Assert.AreEqual(pageInfo.TotalItems, 5);
             Assert.AreEqual(pageInfo.TotalPages, 2);
+        }
+
+        [TestMethod]
+        public void Can_Filter_Products()
+        {
+            // 准备
+            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[]
+            {
+                new Product{ProductID=1,Name="P1",Category="Cat1"},
+                new Product{ProductID=2,Name="P2",Category="Cat2"},
+                new Product{ProductID=3,Name="P3",Category="Cat1"},
+                new Product{ProductID=4,Name="P4",Category="Cat2"},
+                new Product{ProductID=5,Name="P5",Category="Cat3"}
+            }.AsQueryable());
+
+            ProductController controller = new ProductController(mock.Object);
+            controller.PageSize = 3;
+
+            // 动作
+            Product[] result = ((ProductsListViewModel)controller.List("Cat2", 1).Model).Products.ToArray();
+
+            // 断言
+            Assert.AreEqual(result.Length, 2);
+            Assert.IsTrue(result[0].Name == "P2" && result[0].Category == "Cat2");
+            Assert.IsTrue(result[1].Name == "P4" && result[1].Category == "Cat2");
         }
 
     }

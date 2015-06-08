@@ -22,14 +22,16 @@ namespace SportsStore.WebUI.Controllers
             this._repository = productRepository;
         }
 
-        public ViewResult List(int page = 1)
+        public ViewResult List(string category, int page = 1)
         {
             //return View(_repository.Products.OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize));
 
             // 使用视图模型数据
             ProductsListViewModel model = new ProductsListViewModel
             {
+                // Where 条件：如果 category 非空，则只选出与 Category 属性匹配的那些 Product 对象
                 Products = _repository.Products
+                .Where(p => category == null || p.Category == category)
                 .OrderBy(p => p.ProductID).Skip((page - 1) * PageSize)
                 .Take(PageSize),
                 PagingInfo = new PagingInfo
@@ -37,7 +39,8 @@ namespace SportsStore.WebUI.Controllers
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
                     TotalItems = _repository.Products.Count()
-                }
+                },
+                CurrentCategory = category
             };
 
             return View(model);
