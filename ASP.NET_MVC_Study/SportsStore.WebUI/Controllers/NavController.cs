@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SportsStore.Domain.Abstract;
 
 namespace SportsStore.WebUI.Controllers
 {
@@ -11,9 +12,21 @@ namespace SportsStore.WebUI.Controllers
         //
         // GET: /Nav/
 
-        public string Menu()
+        private IProductRepository _repository;
+
+        public NavController(IProductRepository repo)
         {
-            return "Hello from NavController";
+            _repository = repo;
+        }
+
+        public PartialViewResult Menu()
+        {
+            IEnumerable<string> categories = _repository.Products
+                .Select(x => x.Category)
+                .Distinct()
+                .OrderBy(x => x);
+
+            return PartialView(categories);
         }
 
     }
