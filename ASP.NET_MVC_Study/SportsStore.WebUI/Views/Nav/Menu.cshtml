@@ -1,0 +1,10 @@
+﻿@model IEnumerable<string>
+
+<!--添加一个叫作“Home”的链接，它会出现在分类列表的顶部，并将用户带到无分类过滤情况下的所有产品列表的第一页-->
+@Html.ActionLink("Home", "List", "Product");
+
+@foreach (var link in Model)
+{
+    <!--使用 RouteLink 方法为每一个分类创建链接-->
+    @Html.RouteLink(link, new { controller = "Prodcut", action = "List", category = link, page = 1 })
+}
