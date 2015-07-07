@@ -154,6 +154,6 @@ div#categories a {
         background-color: #CCC;
     }
 
-div#categories a.selected:hover {
-    background-color: #666;
-}
+    div#categories a.selected:hover {
+        background-color: #666;
+    }

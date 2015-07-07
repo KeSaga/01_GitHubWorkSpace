@@ -6,5 +6,14 @@
 @foreach (var link in Model)
 {
     <!--使用 RouteLink 方法为每一个分类创建链接-->
-    @Html.RouteLink(link, new { controller = "Prodcut", action = "List", category = link, page = 1 })
+    @Html.RouteLink(link, new { controller = "Prodcut", action = "List", category = link, page = 1 },
+    new
+    {
+        // 此处提供了一个对象，该对象的属性将作为标签属性被添加到这个 HTML 锚点元素上。
+        // 下面 “@class” 的写法是一个C#特性，并非 Razor 标签，这种写法是为了避免 HTML 关键字 class 与 C# 的同样
+        // 关键字 class 之间的冲突。@字符允许开发者使用保留关键字，而不至使编译器产生混淆。
+        // HTML 关键字 class：用来把一个 CSS 样式赋给一个元素
+        // C# 关键字 class：创建一个类
+        @class = link == ViewBag.SelectedCategory ? "selected" : null
+    })
 }

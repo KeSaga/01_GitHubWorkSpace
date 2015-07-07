@@ -153,5 +153,30 @@ namespace SportsStore.UnitTests
 
         }
 
+        [TestMethod]
+        public void Indicates_Selected_Category()
+        {
+            // 准备——创建模仿存储库
+            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[]{
+                new Product{ProductID=1,Name="P1",Category="Apples"},
+                new Product{ProductID=4,Name="P2",Category="Oranges"}
+            }.AsQueryable());
+
+            // 准备——定义控制器
+            NavController target = new NavController(mock.Object);
+
+            // 准备——定义已选分类
+            string categoryToSelect = "Apples";
+
+            // 动作
+            // 注意：ViewBag 的属性值无需转换。这是 ViewBag 对象由于 ViewData 的优点之一。
+            string result = target.Menu(categoryToSelect).ViewBag.SelectedCategory;
+
+            // 断言
+            Assert.AreEqual(categoryToSelect, result);
+
+        }
+
     }
 }
