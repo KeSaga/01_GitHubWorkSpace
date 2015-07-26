@@ -4,5 +4,24 @@
 <div class="item">
     <h3>@Model.Name</h3>
     @Model.Description
+    <!--
+        下面代码块为列表中的每一个产品创建一个小型的 HTML 表单（Form）。当该表单被递交时，将调用 Cart 控制器中的 AddToCart 动作方法。
+    
+        注：默认情况下，BeginForm 辅助器方法会创建一个使用 HTTP POST 方法的表单。当然，我们可以对其进行修改，以使表单使用 GET 方法，
+        但这么做时应该注意，HTTP 规范要求 GET 请求必须是一个 幂等的（Idempotent），即他们必须不会引起（数据）变化，而把一个产品添加到
+        购物车显然是一个变化。
+
+        在一个页面中创建多个 HTML 表单：
+            这里在每个产品列表中使用 Html.BeginForm 辅助器方法，意味着每个“Add to Cart”按钮都会被渲染成它
+        自己独立的 HTML 的form 元素。——这和 ASP.NET 的 Web Form 开发不同，在 Web Form 中每个页面只能有一个表单。而 ASP.NET MVC并不限
+        制每页的表单数量（可以添加任意多个）。
+            由于每个表单将会回递给同一个控制器方法，但却带有一组不同的参数值，所以，这是处理按钮点击的一种很好而简单的方式。
+    -->
+    @using (Html.BeginForm("AddToCart", "Cart"))
+    {
+        @Html.HiddenFor(x => x.ProductID)
+        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+        <input type="submit" value="+ Add to Cart" />
+    }
     <h4>@Model.Price.ToString("c")</h4>
 </div>

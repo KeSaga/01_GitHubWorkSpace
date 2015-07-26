@@ -157,3 +157,19 @@ div#categories A {
     div#categories A.selected:hover {
         background-color: #666;
     }
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+div.item form {
+    float: right;
+}
+
+div.item input {
+    color: white;
+    background-color: #333;
+    border: 1px solid black;
+    cursor: pointer;
+}
