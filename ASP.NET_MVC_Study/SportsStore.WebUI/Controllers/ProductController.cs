@@ -32,7 +32,8 @@ namespace SportsStore.WebUI.Controllers
                 // Where 条件：如果 category 非空，则只选出与 Category 属性匹配的那些 Product 对象
                 Products = _repository.Products
                 .Where(p => category == null || p.Category == category)
-                .OrderBy(p => p.ProductID).Skip((page - 1) * PageSize)
+                .OrderBy(p => p.ProductID)
+                .Skip((page - 1) * PageSize)
                 .Take(PageSize),
                 PagingInfo = new PagingInfo
                 {

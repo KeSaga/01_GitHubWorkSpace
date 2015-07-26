@@ -136,7 +136,7 @@ div.pager {
             color: white;
         }
 
-div#categories a {
+div#categories A {
     font: bold 1.1em "Arial Narrow","Franklin Gothic Medium",Arial;
     display: block;
     text-decoration: none;
@@ -145,15 +145,15 @@ div#categories a {
     border-bottom: 1px solid silver;
 }
 
-    div#categories a.selected {
+    div#categories A.selected {
         background-color: #666;
         color: white;
     }
 
-    div#categories a.hover {
+    div#categories A.hover {
         background-color: #CCC;
     }
 
-    div#categories a.selected:hover {
+    div#categories A.selected:hover {
         background-color: #666;
     }
