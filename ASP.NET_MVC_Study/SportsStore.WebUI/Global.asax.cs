@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using SportsStore.WebUI.Infrastructure;
+using SportsStore.Domain.Entities;
+using SportsStore.WebUI.Binders;
 
 namespace SportsStore.WebUI
 {
@@ -25,6 +27,8 @@ namespace SportsStore.WebUI
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
+            // 注册 Cart 对象与 CartModelBinder 模型绑定器，并使 MVC 框架知道使用 CartModelBinder 类来创建 Cart 的实例。
+            ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());
         }
     }
 }
