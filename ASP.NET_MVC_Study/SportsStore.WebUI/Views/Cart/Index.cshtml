@@ -22,6 +22,19 @@
                 <td align="left">@line.Product.Name</td>
                 <td align="right">@line.Product.Price.ToString("c")</td>
                 <td align="right">@((line.Quantity * line.Product.Price).ToString("c"))</td>
+                <td>
+                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                    {
+                        // 可以使用强类型的 Html.HiddenFor 辅助器方法，为 ReturnUrl 模型属性创建一个隐藏字段，
+                        // 但这需要使用基于字符串的 Html.Hidden 辅助器方法，对 ProductID 字段做同样的事情。如果
+                        // 写成“Html.HiddenFor(x => line.Product.ProductID)”，该辅助器方法便会渲染一个以
+                        // “line.Product.ProductID” 为名称的隐藏字段。该字段名与 CartController.RemoveFromCart
+                        // 动作方法的参数名不匹配，这会使默认的模型绑定器无法工作，因此 MVC 框架便不能调用此方法了。
+                        @Html.Hidden("ProducId", line.Product.ProductID)
+                        @Html.HiddenFor(x => x.ReturnUrl)
+                        <input class="actionButtons" type="submit" value="Remove" />
+                    }
+                </td>
             </tr>
         }
     </tbody>
