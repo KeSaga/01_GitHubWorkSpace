@@ -80,5 +80,10 @@ namespace SportsStore.WebUI.Controllers
 
         #endregion End -------------------------使用模型绑定器------------------------
 
+        public PartialViewResult Summary(Cart cart)
+        {
+            return PartialView(cart);
+        }
+
     }
 }
