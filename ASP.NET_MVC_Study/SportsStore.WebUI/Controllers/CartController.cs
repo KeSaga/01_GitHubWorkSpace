@@ -85,5 +85,11 @@ namespace SportsStore.WebUI.Controllers
             return PartialView(cart);
         }
 
+        public ViewResult Checkout()
+        {
+            // 返回默认视图，并传递一个新的 ShippingDetails 对象作为视图模型。
+            return View(new ShippingDetails());
+        }
+
     }
 }

@@ -1,0 +1,34 @@
+﻿@model SportsStore.Domain.Entities.ShippingDetails
+
+@{
+    ViewBag.Title = "SportStore: Checkout";
+}
+
+<h2>Check out now</h2>
+Please enter your details, and we'll ship your goods right away!
+@using (Html.BeginForm())
+{
+    // Html.EditorFor 辅助器方法为每一个表单字段渲染了一个 input 元素。它使 MVC 框架去决定一个视图模型属性需要
+    // 采用哪种 input 元素，而不是明确指定（如使用 Html.TextBoxFor）。
+    <h3>Ship to</h3>
+    <div>Name:@Html.EditorFor(x => x.Name)</div>
+
+    <h3>Address</h3>
+    <div>Line1:@Html.EditorFor(x => x.Line1)</div>
+    <div>Line2:@Html.EditorFor(x => x.Line2)</div>
+    <div>Line3:@Html.EditorFor(x => x.Line3)</div>
+    <div>City:@Html.EditorFor(x => x.City)</div>
+    <div>State:@Html.EditorFor(x => x.State)</div>
+    <div>Zip:@Html.EditorFor(x => x.Zip)</div>
+    <div>Country:@Html.EditorFor(x => x.Country)</div>
+
+    <h3>Options</h3>
+    <label>
+        @Html.EditorFor(x => x.GiftWrap)
+        Gift wrap these items
+    </label>
+
+    <p align="center">
+        <input class="actionButtons" type="submit" value="Complete order" />
+    </p>
+}
