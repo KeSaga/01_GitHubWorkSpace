@@ -12,10 +12,12 @@ namespace SportsStore.WebUI.Controllers
     public class CartController : Controller
     {
         private IProductRepository _repository;
+        private IOrderProcessor _orderProcessor;
 
-        public CartController(IProductRepository repo)
+        public CartController(IProductRepository repo, IOrderProcessor proc)
         {
             _repository = repo;
+            _orderProcessor = proc;
         }
 
         public ViewResult Index(Cart cart, string returnUrl)
@@ -83,6 +85,32 @@ namespace SportsStore.WebUI.Controllers
         public PartialViewResult Summary(Cart cart)
         {
             return PartialView(cart);
+        }
+
+        /// <summary>
+        /// 该方法使用 HttpPost 修饰，表明该方法将用于对 POST 请求的处理（这里是在用户递交表单的时候）。
+        /// </summary>
+        /// <param name="cart">由 HTTP 表单数据自动创建，依赖于模型绑定器系统</param>
+        /// <param name="shippingDetails">有自定义绑定器创建，依赖于模型绑定器系统</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+        {
+            if (cart.Lines.Count() == 0)
+            {
+                ModelState.AddModelError("", "Sorry, your cart is empty!");
+            }
+
+            if (ModelState.IsValid)
+            {
+                _orderProcessor.ProcessOrder(cart, shippingDetails);
+                cart.Clear();
+                return View("Completed");
+            }
+            else
+            {
+                return View(shippingDetails);
+            }
         }
 
         public ViewResult Checkout()

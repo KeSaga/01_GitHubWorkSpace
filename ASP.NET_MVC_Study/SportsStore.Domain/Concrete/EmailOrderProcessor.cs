@@ -19,7 +19,11 @@ namespace SportsStore.Domain.Concrete
         public string Password = "MySmtpPassword";
         public string ServerName = "smtp.example.com";
         public int ServerPort = 587;
-        public bool WriteAsFile = false;
+        /// <summary>
+        /// 如果有可用的 SMTP 服务器则设置为 false，
+        /// 当前设置为 true 是为了将邮件消息作为文件写到 FileLocation 属性指定的目录。
+        /// </summary>
+        public bool WriteAsFile = true;
         public string FileLocation = @"c:\sports_store_emails";
     }
 
