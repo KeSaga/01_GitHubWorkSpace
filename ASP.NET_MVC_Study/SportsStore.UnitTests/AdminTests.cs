@@ -136,5 +136,31 @@ namespace SportsStore.UnitTests
 
         }
 
+        [TestMethod]
+        public void Cann_Delete_Valid_Products()
+        {
+            // 准备——创建一个产品
+            Product prod = new Product { ProductID = 2, Name = "Test" };
+
+            // 准备——创建模仿存储库
+            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[]
+            {
+                new Product { ProductID = 1, Name = "P1" },
+                prod,
+                new Product { ProductID = 3, Name = "P3" }
+            }.AsQueryable());
+
+            // 准备——创建控制器
+            AdminController target = new AdminController(mock.Object);
+
+            // 动作——删除产品
+            ActionResult result = target.Delete(prod.ProductID);
+
+            // 断言——确保存储库的删除方法是针对正确的产品被调用的
+            mock.Verify(m => m.DeleteProduct(prod.ProductID));
+
+        }
+
     }
 }

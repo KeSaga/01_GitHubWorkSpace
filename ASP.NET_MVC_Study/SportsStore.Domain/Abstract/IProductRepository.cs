@@ -7,9 +7,10 @@ using SportsStore.Domain.Entities;
 
 namespace SportsStore.Domain.Abstract
 {
-   public interface IProductRepository
+    public interface IProductRepository
     {
-       IQueryable<Product> Products { get; }
-       void SaveProduct(Product product);
+        IQueryable<Product> Products { get; }
+        void SaveProduct(Product product);
+        Product DeleteProduct(int productIID);
     }
 }

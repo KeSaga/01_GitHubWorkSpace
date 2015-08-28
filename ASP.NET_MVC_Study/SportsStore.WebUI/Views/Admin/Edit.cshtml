@@ -7,7 +7,8 @@
 
 <h1>Edit @Model.Name</h1>
 
-@using (Html.BeginForm())
+<!--下面 BeginForm 辅助器方法的参数起到了“生成一个总是被递交给 Edit 动作的表单，而与渲染他的动作无关”的效果-->
+@using (Html.BeginForm("Edit", "Admin"))
 {
     // 这里并未对每一个标签和输入项编写标记，而是使用 EditorForModel 辅助器方法要求
     // MVC 框架创建编辑界面，这是通过探测其模型类型来实现的——这里是 Product
