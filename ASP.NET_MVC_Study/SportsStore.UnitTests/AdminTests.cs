@@ -24,8 +24,8 @@ namespace SportsStore.UnitTests
                 new Product[]
                 {
                     new Product{ProductID=1,Name="P1"},
-                    new Product{ProductID=1,Name="P1"},
-                    new Product{ProductID=1,Name="P1"}
+                    new Product{ProductID=2,Name="P2"},
+                    new Product{ProductID=3,Name="P3"}
                 }.AsQueryable());
 
             // 准备——创建控制器
@@ -51,8 +51,8 @@ namespace SportsStore.UnitTests
                 new Product[]
                 {
                     new Product{ProductID=1,Name="P1"},
-                    new Product{ProductID=1,Name="P1"},
-                    new Product{ProductID=1,Name="P1"}
+                    new Product{ProductID=2,Name="P2"},
+                    new Product{ProductID=3,Name="P3"}
                 }.AsQueryable());
 
             // 准备——创建控制器
@@ -132,7 +132,7 @@ namespace SportsStore.UnitTests
             // 断言——确认存储库未被调用
             mock.Verify(m => m.SaveProduct(It.IsAny<Product>()), Times.Never());
             // 断言——检测方法的结果类型
-            Assert.IsNotInstanceOfType(result, typeof(ViewResult));
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
 
         }
 

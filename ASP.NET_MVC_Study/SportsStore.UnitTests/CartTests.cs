@@ -259,7 +259,6 @@ namespace SportsStore.UnitTests
             // 准备——创建含有一个物品的购物车
             Cart cart = new Cart();
             cart.AddItem(new Product(), 1);
-
             // 准备——创建一个控制器实例
             CartController target = new CartController(null, mock.Object);
 
@@ -270,7 +269,7 @@ namespace SportsStore.UnitTests
             mock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()),
                 Times.Once());
             // 断言——检查，该方法返回的是 Completed（已完成）视图
-            Assert.AreEqual("", result.ViewName);
+            Assert.AreEqual("Completed", result.ViewName);
             // 断言——检查，把一个有效模型传递给视图
             Assert.AreEqual(true, result.ViewData.ModelState.IsValid);
 

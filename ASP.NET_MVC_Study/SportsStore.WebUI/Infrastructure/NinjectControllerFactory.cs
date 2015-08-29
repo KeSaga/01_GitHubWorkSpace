@@ -10,6 +10,8 @@ using SportsStore.Domain.Abstract;
 using SportsStore.Domain.Entities;
 using SportsStore.Domain.Concrete;
 using System.Configuration;
+using SportsStore.WebUI.Infrastructure.Abstract;
+using SportsStore.WebUI.Infrastructure.Concrete;
 
 namespace SportsStore.WebUI.Infrastructure
 {
@@ -50,12 +52,16 @@ namespace SportsStore.WebUI.Infrastructure
 
             EmailSettings emailSettings = new EmailSettings
             {
+                // ?? 运算符称作 null 合并运算符。如果此运算符的左操作数不为 null，则此运算符将返回左操作数；否则返回右操作数。
                 WriteAsFile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAsFile"] ?? "false")
             };
 
             _ninjectKernel.Bind<IOrderProcessor>()
                 .To<EmailOrderProcessor>()
                 .WithConstructorArgument("settings", emailSettings);
+
+            _ninjectKernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
+
         }
 
     }
