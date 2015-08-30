@@ -2,11 +2,19 @@
 <!--分部视图：分部视图在被渲染时产生的是一个 HTML 片段，而不是整个 HTML 文档-->
 <!--分部视图是自包含文件，且可以跨视图重用-->
 <div class="item">
+
+    @if (Model.ImageData != null)
+    {
+        <div style="float:left;margin-right:20px">
+            <img width="75" height="75" src="@Url.Action("GetImage", "Product", new { Model.ProductID })" />
+        </div>
+    }
+
     <h3>@Model.Name</h3>
     @Model.Description
     <!--
         下面代码块为列表中的每一个产品创建一个小型的 HTML 表单（Form）。当该表单被递交时，将调用 Cart 控制器中的 AddToCart 动作方法。
-    
+
         注：默认情况下，BeginForm 辅助器方法会创建一个使用 HTTP POST 方法的表单。当然，我们可以对其进行修改，以使表单使用 GET 方法，
         但这么做时应该注意，HTTP 规范要求 GET 请求必须是一个 幂等的（Idempotent），即他们必须不会引起（数据）变化，而把一个产品添加到
         购物车显然是一个变化。

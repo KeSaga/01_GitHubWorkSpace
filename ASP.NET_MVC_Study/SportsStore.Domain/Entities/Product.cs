@@ -25,5 +25,12 @@ namespace SportsStore.Domain.Entities
         [Required(ErrorMessage = "Please specify a category")]
         public string Category { get; set; }
 
+        // 不需要对 ImageData 属性做任何设置，因为 MVC 框架不会对一个字节数组渲染一个编辑器。
+        // （实际上这一规则只对“简单”类型起作用，如 int、string、DateTime 等）
+        public byte[] ImageData { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        public string ImageMimeType { get; set; }
+
     }
 }

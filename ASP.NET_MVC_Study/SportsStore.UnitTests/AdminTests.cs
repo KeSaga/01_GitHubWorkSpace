@@ -105,7 +105,7 @@ namespace SportsStore.UnitTests
             Product product = new Product { Name = "Test" };
 
             // 动作——试着保存这个产品
-            ActionResult result = target.Edit(product);
+            ActionResult result = target.Edit(product, null);
 
             // 断言——检查，调用了存储库
             mock.Verify(m => m.SaveProduct(product));
@@ -127,7 +127,7 @@ namespace SportsStore.UnitTests
             target.ModelState.AddModelError("error", "error");
 
             // 动作——试图保存产品
-            ActionResult result = target.Edit(product);
+            ActionResult result = target.Edit(product, null);
 
             // 断言——确认存储库未被调用
             mock.Verify(m => m.SaveProduct(It.IsAny<Product>()), Times.Never());

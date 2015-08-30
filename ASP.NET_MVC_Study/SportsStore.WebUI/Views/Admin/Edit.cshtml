@@ -8,7 +8,12 @@
 <h1>Edit @Model.Name</h1>
 
 <!--下面 BeginForm 辅助器方法的参数起到了“生成一个总是被递交给 Edit 动作的表单，而与渲染他的动作无关”的效果-->
-@using (Html.BeginForm("Edit", "Admin"))
+@*
+    只有当 HTML 的 form 元素定义了一个值为 multipart/form-data 的 enctype 时，Web 浏览器才会适当的上传文件。
+    因此，为了能够生成一个正确的 form 元素，这里必须使用 Html.BeginForm 辅助器方法的一个重载版本，以便能够指定
+    HTML 标签属性。（如果没有这个 enctype 属性，浏览器只将传递文件名，而不是文件的内容）
+*@
+@using (Html.BeginForm("Edit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     // 这里并未对每一个标签和输入项编写标记，而是使用 EditorForModel 辅助器方法要求
     // MVC 框架创建编辑界面，这是通过探测其模型类型来实现的——这里是 Product
@@ -18,6 +23,20 @@
     // 该辅助器方法的输出结果。
     // ------说明--------End
     @Html.EditorForModel()
+
+    <div class="editor-label">Image</div>
+    <div class="editor-field">
+        @if (Model.ImageData == null)
+        {
+            @:None
+        }
+        else
+        {
+            <img width="150" height="150" src="@Url.Action("GetImage", "Product", new { Model.ProductID })" />
+        }
+        <div>Upload new image:<input type="file" name="Image" /></div>
+    </div>
+
     <input type="submit" value="Save" />
     @Html.ActionLink("Cancel and return to List", "Index")
 }
