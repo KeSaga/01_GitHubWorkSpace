@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "学习文档", "学习文�
 		学习文档\001_初识ASP.NET MVC架构.docx = 学习文档\001_初识ASP.NET MVC架构.docx
 		学习文档\002_Razor简介（MyRazorEG）.docx = 学习文档\002_Razor简介（MyRazorEG）.docx
 		学习文档\003_MVC基本工具 .docx = 学习文档\003_MVC基本工具 .docx
+		学习文档\004_ URL 路由.docx = 学习文档\004_ URL 路由.docx
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}"
@@ -26,6 +27,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore.WebUI", "SportsStore.WebUI\SportsStore.WebUI.csproj", "{0E1419F0-B041-459B-B590-1F0E12472E6F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore.UnitTests", "SportsStore.UnitTests\SportsStore.UnitTests.csproj", "{A52C0F0B-5F07-4D21-AAD3-2461B80FCE39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlsAndRoutes", "UrlsAndRoutes\UrlsAndRoutes.csproj", "{05F2F07C-F140-48B9-8150-6F819C37C6E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlsAndRoutes.Tests", "UrlsAndRoutes.Tests\UrlsAndRoutes.Tests.csproj", "{1DEBC694-1A16-41E4-B83C-772AE4E2A213}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +66,14 @@ Global
 		{A52C0F0B-5F07-4D21-AAD3-2461B80FCE39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A52C0F0B-5F07-4D21-AAD3-2461B80FCE39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A52C0F0B-5F07-4D21-AAD3-2461B80FCE39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05F2F07C-F140-48B9-8150-6F819C37C6E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05F2F07C-F140-48B9-8150-6F819C37C6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05F2F07C-F140-48B9-8150-6F819C37C6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05F2F07C-F140-48B9-8150-6F819C37C6E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DEBC694-1A16-41E4-B83C-772AE4E2A213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DEBC694-1A16-41E4-B83C-772AE4E2A213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DEBC694-1A16-41E4-B83C-772AE4E2A213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DEBC694-1A16-41E4-B83C-772AE4E2A213}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,5 +86,7 @@ Global
 		{D6D55F15-2478-4BD0-A37C-09433BFD1FC0} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
 		{0E1419F0-B041-459B-B590-1F0E12472E6F} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
 		{A52C0F0B-5F07-4D21-AAD3-2461B80FCE39} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
+		{05F2F07C-F140-48B9-8150-6F819C37C6E3} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
+		{1DEBC694-1A16-41E4-B83C-772AE4E2A213} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
 	EndGlobalSection
 EndGlobal
