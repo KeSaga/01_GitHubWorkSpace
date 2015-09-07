@@ -24,7 +24,7 @@ namespace UrlsAndRoutes
             routes.Add("MyRoute", myRoute);
 
             // 使用 RouteCollection 类所定义的MapRoute方法实现路由的注册（效果与上面方式相同）
-            routes.MapRoute("MyRoute", "{controller}/{action}");
+            //routes.MapRoute("MyRoute", "{controller}/{action}");
 
         }
     }
