@@ -109,16 +109,22 @@ namespace UrlsAndRoutes.Tests
         [TestMethod]
         public void TestIncomingRoutes()
         {
-            // 对用户希望接收的 URL 进行检测
-            TestRouteMatch("~/Admin/Index","Admin","Index");
-            // 检查通过片段获取的值
-            TestRouteMatch("~/One/Two", "One", "Two");
+            //// 对用户希望接收的 URL 进行检测
+            //TestRouteMatch("~/Admin/Index","Admin","Index");
+            //// 检查通过片段获取的值
+            //TestRouteMatch("~/One/Two", "One", "Two");
 
-            // 确保太多或太少的片段书不会匹配
-            TestRouteFail("~/Admin/Index/Segment");
-            TestRouteFail("~/Admin");
+            //// 确保太多或太少的片段书不会匹配
+            //TestRouteFail("~/Admin/Index/Segment");
+            //TestRouteFail("~/Admin");
 
             // ----注：在测试时必须有波浪线(~)字符作为 URL 的前缀，因为这是 ASP.NET 框架把 URL 表现给路由系统的方式。----
+
+
+            TestRouteMatch("~/", "Home", "Index");
+            TestRouteMatch("~/Customer", "Customer", "Index");
+            TestRouteMatch("~/Customer/List", "Customer", "List");
+            //TestRouteFail("~/Customer/List/All");
 
         }
 
