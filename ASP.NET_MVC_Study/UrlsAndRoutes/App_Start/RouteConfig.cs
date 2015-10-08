@@ -11,6 +11,14 @@ namespace UrlsAndRoutes
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            // 为控制器和动作方法创建一个别名
+            routes.MapRoute("ShopSchema2", "Shop/OldAction", new { controller = "Home", action = "Index" });
+            // 结合静态片段和默认值为特定的路由创建一个别名
+            // 匹配第一个片段是 Shop 的任意两片段 URL，action 的值取自第二个 URL 片段。
+            // 由于此 URL 模式未提供 controler 的可变片段，所以会使用提供的默认值（“Home”）。即对
+            // Shop 控制器上的一个动作的请求会被转换成对 Home 控制器的请求。
+            routes.MapRoute("ShopSchema", "Shop/{action}", new { controller = "Home" });
+
             // 创建一个既有静态也有可变元素片段的 URL 模式
             // MapRoute 将在路由集合的末尾添加一条新的路由
             // 该路由需要放在其他路由之前，原因是路由是按照他们在 RouteCollection 对象中出现的顺序被运用的。

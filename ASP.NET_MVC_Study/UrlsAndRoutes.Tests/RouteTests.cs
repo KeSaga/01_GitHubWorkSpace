@@ -123,6 +123,7 @@ namespace UrlsAndRoutes.Tests
 
             TestRouteMatch("~/", "Home", "Index");
             TestRouteMatch("~/Customer", "Customer", "Index");
+            TestRouteMatch("~/Shop/Index", "Home", "Index");
             TestRouteMatch("~/Customer/List", "Customer", "List");
             //TestRouteFail("~/Customer/List/All");
 
