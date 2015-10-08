@@ -48,6 +48,10 @@ namespace UrlsAndRoutes
             // 定义静态 URL 片段（带有 Public 前缀的静态模式）
             routes.MapRoute("", "Public/{controller}/{action}", new { controller = "Home", action = "Index" });
 
+            // 定义一个名为“id”的自定义变量。如果没有与之对应的片段内容，则将使用默认值
+            //routes.MapRoute("MyRoute", "{controller}/{action}/{id}",
+            //    new { controller = "Home", action = "Index", id = "DefaultId" });
+
         }
     }
 }

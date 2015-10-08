@@ -127,6 +127,13 @@ namespace UrlsAndRoutes.Tests
             TestRouteMatch("~/Customer/List", "Customer", "List");
             //TestRouteFail("~/Customer/List/All");
 
+            // 测试自定义片段变量----不做演示，因此不必须要该功能
+            //TestRouteMatch("~/", "Home", "Index", new { id = "DefaultId" });
+            //TestRouteMatch("~/Customer", "Customer", "Index", new { id = "DefaultId" });
+            //TestRouteMatch("~/Customer/List", "Customer", "List", new { id = "DefaultId" });
+            //TestRouteMatch("~/Customer/List/All", "Customer", "List", new { id = "DefaultId" });
+            //TestRouteFail("~/Customer/List/All/Delete");
+
         }
 
     }
