@@ -134,6 +134,13 @@ namespace UrlsAndRoutes.Tests
             //TestRouteMatch("~/Customer/List/All", "Customer", "List", new { id = "DefaultId" });
             //TestRouteFail("~/Customer/List/All/Delete");
 
+            // 测试可选 URL 片段----不做演示，因此不必须要该功能
+            //TestRouteMatch("~/", "Home", "Index");
+            //TestRouteMatch("~/Customer", "Customer", "Index");
+            //TestRouteMatch("~/Customer/List", "Customer", "List");
+            //TestRouteMatch("~/Customer/List/All", "Customer", "List", new { id = "All" });
+            //TestRouteFail("~/Customer/List/All/Delete");
+
         }
 
     }

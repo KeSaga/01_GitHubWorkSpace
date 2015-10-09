@@ -52,6 +52,10 @@ namespace UrlsAndRoutes
             //routes.MapRoute("MyRoute", "{controller}/{action}/{id}",
             //    new { controller = "Home", action = "Index", id = "DefaultId" });
 
+            // 定义可选 URL 片段。该路由的效果是：无论是否提供id，都将进行匹配
+            //routes.MapRoute("MyRoute", "{controller}/{action}/{id}",
+            //    new { controller = "Home", action = "Index", id = UrlParameter.Optional });
+
         }
     }
 }
