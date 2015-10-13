@@ -56,6 +56,10 @@ namespace UrlsAndRoutes
             //routes.MapRoute("MyRoute", "{controller}/{action}/{id}",
             //    new { controller = "Home", action = "Index", id = UrlParameter.Optional });
 
+            //// 定义可变长路由
+            //routes.MapRoute("MyRoute", "{controller}/{action}/{id}/{*catchall}",
+            //    new { controller = "Home", action = "Index", id = UrlParameter.Optional });
+
         }
     }
 }
