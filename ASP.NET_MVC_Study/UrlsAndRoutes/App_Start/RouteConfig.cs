@@ -110,5 +110,18 @@ namespace UrlsAndRoutes
 
         //}
 
+        ///// <summary>
+        ///// 基于 HTTP 方法进行路由的约束
+        ///// </summary>
+        ///// <param name="routes"></param>
+        //public static void RegisterRoutes(RouteCollection routes)
+        //{
+        //    routes.MapRoute("MyRoute", "{controller}/{action}/{id}/{*catchall}",
+        //          new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+        //          new { controller = "^H.*", action = "Index|About",
+        //              httpMethod = new HttpMethodConstraint("GET") },
+        //          new string[] { "UrlsAndRoutes.Controllers" });
+        //}
+
     }
 }

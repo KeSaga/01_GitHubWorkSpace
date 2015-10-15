@@ -149,6 +149,20 @@ namespace UrlsAndRoutes.Tests
             //TestRouteMatch("~/Customer/List/All/Delete", "Customer", "List", new { id = "All", catchall = "Delete" });
             //TestRouteMatch("~/Customer/List/All/Delete/Perm", "Customer", "List", new { id = "All", catchall = "Delete/Perm" });
 
+            // 测试约束路由----不做演示，因此不必须要该功能
+            //TestRouteMatch("~/", "Home", "Index");
+            //TestRouteMatch("~/Home", "Home", "Index");
+            //TestRouteMatch("~/Home/Index", "Home", "Index");
+
+            //TestRouteMatch("~/Home/About", "Home", "About");
+            //TestRouteMatch("~/Home/About/MyId", "Home", "About", new { id = "MyId" });
+            //TestRouteMatch("~/Home/About/MyId/More/Segments", "Home", "About",
+            //    new { id = "MyId", catchall = "More/Segments" });
+
+            //TestRouteFail("~/Home/OtherAction");
+            //TestRouteFail("~/Account/Index");
+            //TestRouteFail("~/Account/About");
+
         }
 
     }
