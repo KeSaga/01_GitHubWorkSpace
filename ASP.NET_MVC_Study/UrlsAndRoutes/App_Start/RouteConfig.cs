@@ -84,5 +84,31 @@ namespace UrlsAndRoutes
 
         }
 
+        ///// <summary>
+        ///// 使用正则表达式约束一条路由
+        ///// </summary>
+        ///// <param name="routes"></param>
+        //public static void RegisterRoutes(RouteCollection routes)
+        //{
+        //    routes.MapRoute("MyRoute", "{controller}/{action}/{id}/{*catchall}",
+        //          new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+        //          new { controller = "^H.*" },
+        //          new string[] { "UrlsAndRoutes.Controllers" });
+
+        //}
+
+        ///// <summary>
+        ///// 将一条路由约束到一组指定的值
+        ///// </summary>
+        ///// <param name="routes"></param>
+        //public static void RegisterRoutes(RouteCollection routes)
+        //{
+        //    routes.MapRoute("MyRoute", "{controller}/{action}/{id}/{*catchall}",
+        //          new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+        //          new { controller = "^H.*", action = "^Index$|^About&=$" },
+        //          new string[] { "UrlsAndRoutes.Controllers" });
+
+        //}
+
     }
 }
