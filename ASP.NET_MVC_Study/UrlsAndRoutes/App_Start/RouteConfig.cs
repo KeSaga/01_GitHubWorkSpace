@@ -130,6 +130,15 @@ namespace UrlsAndRoutes
         ///// <param name="routes"></param>
         //public static void RegisterRoutes(RouteCollection routes)
         //{
+        //    // 下面这句话的作用是启用文件检查前的路由评估
+        //    routes.RouteExistingFiles = true;
+
+        //    // 使用 IgnoreRoute 方法
+        //    routes.IgnoreRoute("Content/{filename}.html");
+
+        //    routes.MapRoute("DiskFile", "Content/StaticContent.html",
+        //        new { controller = "Customer", action = "List" });
+
         //    routes.MapRoute("ChromeRoute", "{*catchall}",
         //          new { controller = "Home", action = "Index" },
         //          new
