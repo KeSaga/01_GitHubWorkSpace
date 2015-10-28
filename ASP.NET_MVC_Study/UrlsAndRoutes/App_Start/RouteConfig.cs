@@ -152,5 +152,17 @@ namespace UrlsAndRoutes
         //          new string[] { "UrlsAndRoutes.Controllers" });
         //}
 
+        ///// <summary>
+        ///// 为演示用路由系统生成输出 URL 而设计的路由方案
+        ///// </summary>
+        ///// <param name="routes"></param>
+        //public static void RegisterRoutes(RouteCollection routes)
+        //{
+        //    routes.MapRoute("NewRoute", "App/Do{action}",
+        //        new { controller = "Home" });
+        //    routes.MapRoute("MyRoute", "{controller}/{action}/{id}",
+        //        new { controller = "Home", action = "Index", id = UrlParameter.Optional });
+        //}
+
     }
 }
