@@ -13,6 +13,9 @@
     <div>The controller is:@ViewBag.Controller</div>
     <div>The action is:@ViewBag.Action</div>
     <div>@Html.ActionLink("This is an outgoing URL", "CustomVariable")</div>
+    <div>
+        <!--通过指定控制器来实现一个以不同控制器为目标的输出 URL -->
+        @Html.ActionLink("This targets another controller", "Index", "Admin")
+    </div>
 </body>
 </html>
-
