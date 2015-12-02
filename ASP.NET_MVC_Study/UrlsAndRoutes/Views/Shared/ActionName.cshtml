@@ -17,5 +17,9 @@
         <!--通过指定控制器来实现一个以不同控制器为目标的输出 URL -->
         @Html.ActionLink("This targets another controller", "Index", "Admin")
     </div>
+    <div>
+        <!--使用匿名类型给片段变量提供值-->
+        @Html.ActionLink("This is an outgoing URL", "CustomVariable", new { id = "Hello" })
+    </div>
 </body>
 </html>
