@@ -21,5 +21,18 @@
         <!--使用匿名类型给片段变量提供值-->
         @Html.ActionLink("This is an outgoing URL", "CustomVariable", new { id = "Hello" })
     </div>
+    <div>
+        <!--生成一个带有标签属性的锚点元素。class 之前使用@字符作为前缀，这是一条 C# 语言特性，它让用户能够用保留关键字作为 class 成员的名字（即以 class 作为该匿名类型的一个成员）-->
+        @Html.ActionLink("This is an outgoing URL", "Index", "Home", null, new { id = "myAchorID", @class = "myCSSClass" })
+    </div>
+    <div>
+        <!--生成权限定 URL -->
+        @Html.ActionLink("This is an outgoing URL", "Index", "Home", "https", "myserver.mydomain.com", " myFragmentName", new { id = "myId" }
+                          , new { id = "myAchorID", @class = "myCSSClass" })
+    </div>
+    <div>
+        This is a URL:
+        @Url.Action("Index", "Home", new { id = "MyId" })
+    </div>
 </body>
 </html>
