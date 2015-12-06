@@ -164,5 +164,16 @@ namespace UrlsAndRoutes
         //        new { controller = "Home", action = "Index", id = UrlParameter.Optional });
         //}
 
+        ///// <summary>
+        ///// 为了配合使用指定路由生成ULR而做的修改
+        ///// </summary>
+        ///// <param name="routes"></param>
+        //public static void RegisterRoutes(RouteCollection routes)
+        //{
+        //    routes.MapRoute("MyRoute", "{controller}/{action}");
+        //    routes.MapRoute("MyOtherRoute", "App/{action}", new { controller = "Home" });
+
+        //}
+
     }
 }

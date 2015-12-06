@@ -67,5 +67,36 @@ namespace UrlsAndRoutes.Controllers
         //    return View();
         //}
 
+        /// <summary>
+        /// 在动作方法中生成输出 URL
+        /// </summary>
+        /// <returns></returns>
+        public ViewResult MyActionMethod()
+        {
+            string myActionUrl = Url.Action("Index", new { id = "MyID" });
+            string myRouteUrl = Url.RouteUrl(new { controller = "Home", action = "Index" });
+
+            // ... 用此 URL 做些事情...
+            return View();
+        }
+
+        ///// <summary>
+        ///// 重定向到另一个动作
+        ///// </summary>
+        ///// <returns></returns>
+        //public RedirectToRouteResult MyActionMethod()
+        //{
+        //    return RedirectToRouteResult("Index");
+        //}
+
+        ///// <summary>
+        ///// 重定向到根据匿名类型中的属性生成的URL
+        ///// </summary>
+        ///// <returns></returns>
+        //public RedirectToRouteResult MyActionMethod()
+        //{
+        //    return RedirectToRoute(new { controller = "Home", action = "Home", id = "MyID" });
+        //}
+
     }
 }
