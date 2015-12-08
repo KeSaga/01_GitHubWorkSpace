@@ -175,5 +175,19 @@ namespace UrlsAndRoutes
 
         //}
 
+        //public static void RegisterRoutes(RouteCollection routes)
+        //{
+        //    // 注册自定义的 RouteBase 实现
+        //    routes.Add(new LegacyRoute("~/articles/Windows_3.1_Overview.html", "~/old/.NET_1.0_Class_Library"));
+
+        //}
+
+        //public static void RegisterRoutes(RouteCollection routes)
+        //{
+        //    // 注册自定义路由处理程序
+        //    routes.Add(new Route("SayHello", new CustomRouteHandler()));
+
+        //}
+
     }
 }

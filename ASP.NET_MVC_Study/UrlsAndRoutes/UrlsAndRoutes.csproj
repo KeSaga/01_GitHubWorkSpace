@@ -138,6 +138,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\CustomRouteHandler.cs" />
+    <Compile Include="Infrastructure\LegacyRoute.cs" />
     <Compile Include="Infrastructure\UserAgentConstratint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
