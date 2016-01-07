@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ActionTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
