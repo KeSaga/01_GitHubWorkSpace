@@ -1,0 +1,27 @@
+﻿@*改用强类型视图，以避免产生杂乱的视图*@
+@model DateTime
+@{
+    // 演示如何获取动作方法通过 View 方法的参数发送给视图的视图模型信息
+
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*弱类型视图方式：
+    The day is: @(((DateTime)Model).DayOfWeek)*@
+
+@*强类型视图方式：*@
+The day is: @Model.DayOfWeek
+
+@*下面演示如何从视图包（ViewBag）中获取数据*@
+@*@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+The day is: @ViewBag.Date.DayOfWeek
+<p>
+    The message is: @ViewBag.Message
+</p>*@

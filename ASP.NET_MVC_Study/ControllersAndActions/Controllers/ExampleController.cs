@@ -23,5 +23,27 @@ namespace ControllersAndActions.Controllers
         //    return View("~/Views/Other/Index.cshtml");
         //}
 
+        ///// <summary>
+        ///// 将一个对象作为 View 方法的参数发送给视图
+        ///// </summary>
+        ///// <returns></returns>
+        //public ViewResult Index()
+        //{
+        //    DateTime date = DateTime.Now;
+        //    return View(date);
+        //}
+
+        ///// <summary>
+        ///// 使用视图包特性：ViewBag
+        ///// </summary>
+        ///// <returns></returns>
+        //public ViewResult Index()
+        //{
+        //    ViewBag.Messge = "Hello";
+        //    ViewBag.Date = DateTime.Now;
+
+        //    return View();
+        //}
+
     }
 }
