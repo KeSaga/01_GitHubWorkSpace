@@ -59,5 +59,23 @@ namespace ControllersAndActions.Tests
 
         //}
 
+        /// <summary>
+        /// 测试：字面重定向
+        /// </summary>
+        [TestMethod]
+        public void RedirectTest()
+        {
+            // 准备——创建控制器
+            ExampleController target = new ExampleController();
+
+            // 动作——调用动作方法
+            RedirectResult result = target.Redirect();
+
+            // 断言——检查结果
+            Assert.IsFalse(result.Permanent);
+            Assert.AreEqual("/Example/Index", result.Url);
+
+        }
+
     }
 }

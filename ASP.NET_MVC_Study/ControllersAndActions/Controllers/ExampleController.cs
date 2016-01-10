@@ -45,5 +45,18 @@ namespace ControllersAndActions.Controllers
         //    return View();
         //}
 
+        /// <summary>
+        /// 重定向到一个字面 URL
+        /// </summary>
+        /// <returns></returns>
+        public RedirectResult Redirect()
+        {
+            // 临时重定向
+            return Redirect("/Example/Index");
+
+            //// 永久重定向
+            //return RedirectPermanent("/Example/Index");
+        }
+
     }
 }
