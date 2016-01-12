@@ -77,5 +77,25 @@ namespace ControllersAndActions.Tests
 
         }
 
+        /// <summary>
+        /// 测试： 路由重定向
+        /// </summary>
+        [TestMethod]
+        public void RedirectValueTest()
+        {
+            // 准备——创建控制器
+            ExampleController target = new ExampleController();
+
+            // 动作——调用动作方法
+            RedirectToRouteResult result = target.RedirectToRoute();
+
+            // 断言——检查结果
+            Assert.IsFalse(result.Permanent);
+            Assert.AreEqual("Example", result.RouteValues["controller"]);
+            Assert.AreEqual("Index", result.RouteValues["action"]);
+            Assert.AreEqual("MyID", result.RouteValues["ID"]);
+
+        }
+
     }
 }
