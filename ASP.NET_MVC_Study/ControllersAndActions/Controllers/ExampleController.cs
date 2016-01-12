@@ -97,5 +97,32 @@ namespace ControllersAndActions.Controllers
             //return RedirectToAction("Index", "Basic");
         }
 
+        /// <summary>
+        /// 发送一个指定的状态码（此例返回一个 404 代码）
+        /// </summary>
+        /// <returns></returns>
+        public HttpStatusCodeResult StatusCode()
+        {
+            return new HttpStatusCodeResult(404, "URL cannot be serviced");
+        }
+
+        /// <summary>
+        /// 使用 HttpNotFound 方法返回 404 代码
+        /// </summary>
+        /// <returns></returns>
+        public HttpStatusCodeResult StatusCode404()
+        {
+            return HttpNotFound();
+        }
+
+        /// <summary>
+        /// 返回 401 代码
+        /// </summary>
+        /// <returns></returns>
+        public HttpStatusCodeResult StatusCode401()
+        {
+            return new HttpUnauthorizedResult();
+        }
+
     }
 }

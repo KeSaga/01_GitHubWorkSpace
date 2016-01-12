@@ -97,5 +97,22 @@ namespace ControllersAndActions.Tests
 
         }
 
+        /// <summary>
+        /// 测试： HTTP 状态码
+        /// </summary>
+        [TestMethod]
+        public void StatusCodeResultTest()
+        {
+            // 准备——创建控制器
+            ExampleController target = new ExampleController();
+
+            // 动作——调用动作方法
+            HttpStatusCodeResult result = target.StatusCode();
+
+            // 断言——检查结果
+            Assert.AreEqual(404, result.StatusCode);
+
+        }
+
     }
 }
