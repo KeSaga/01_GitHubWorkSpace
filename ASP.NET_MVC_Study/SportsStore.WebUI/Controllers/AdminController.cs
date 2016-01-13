@@ -9,7 +9,7 @@ using SportsStore.Domain.Entities;
 namespace SportsStore.WebUI.Controllers
 {
     // 说明：
-    // 过滤器试一下 .NET 的注解属性，可以把它们运用于动作方法或控制器类。
+    // 过滤器是 .NET 的注解属性，可以把它们运用于动作方法或控制器类。
     // 当被用于控制器类时，其作用效果将覆盖当前控制器中的每一个方法。
     [Authorize]
     public class AdminController : Controller
