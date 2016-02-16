@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Filters.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,6 +15,8 @@ namespace Filters.Controllers
         /// （这只是为了简化，在实际的项目中还是应该使用视图——这里只关注控制器）
         /// </summary>
         /// <returns></returns>
+        //[CustomAuth(false)]
+        [Authorize(Users = "adam,steve,jacqui", Roles = "admin")]
         public string Index()
         {
             return "This is the Index action on the Home Controller";
