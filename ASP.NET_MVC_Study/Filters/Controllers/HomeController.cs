@@ -22,5 +22,18 @@ namespace Filters.Controllers
             return "This is the Index action on the Home Controller";
         }
 
+        [RangeException]
+        public string RangeTest(int id)
+        {
+            if (id > 100)
+            {
+                return string.Format("The id value is:{0}", id);
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("id", id, "");
+            }
+        }
+
     }
 }
