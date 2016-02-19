@@ -22,7 +22,10 @@ namespace Filters.Controllers
             return "This is the Index action on the Home Controller";
         }
 
-        [RangeException]
+        //自定义的异常过滤器
+        //[RangeException]
+        //内建的异常过滤器
+        [HandleError(ExceptionType = typeof(ArgumentOutOfRangeException), View = "RangeError")]
         public string RangeTest(int id)
         {
             if (id > 100)

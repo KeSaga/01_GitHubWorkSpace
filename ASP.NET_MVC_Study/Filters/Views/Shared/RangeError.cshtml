@@ -1,9 +1,14 @@
-﻿@model int
+﻿<!--使用 HandleErrorInfo 模型对象-->
+@model HandleErrorInfo
+<!--model int-->
 
 @{
-    // 用来演示在异常视图信息中抛出异常的情况
-    var count = 0;
-    var number = Model / count;
+    //// 用来演示在异常视图信息中抛出异常的情况
+    //var count = 0;
+    //var number = Model / count;
+
+    // 使用 HandleErrorInfo 模型对象
+    ViewBag.Title = "Sorry,there was a problem!";
 }
 
 <!DOCTYPE html>
@@ -14,9 +19,25 @@
     <title>Range Error</title>
 </head>
 <body>
-    <h2>The value @Model was out of the expected range.</h2>
+    @*<h2>The value @Model was out of the expected range.</h2>
+        <div>
+            @Html.ActionLink("Change value and try again", "Index")
+        </div>*@
+
+    <!--使用 HandleErrorInfo 模型对象-->
+    <h2>Sorry</h2>
+    <span>
+        The value @(((ArgumentOutOfRangeException)Model.Exception).ActualValue)
+        was out of the expected range.
+    </span>
     <div>
         @Html.ActionLink("Change value and try again", "Index")
     </div>
+    <!--放在 div 中且将 display 设为 none 可将堆栈的跟踪情况隐藏-->
+    <div style="display:none">
+        <!--必须包含该属性的值，否则将不能显示异常视图-->
+        @Model.Exception.StackTrace
+    </div>
+
 </body>
 </html>
