@@ -38,5 +38,13 @@ namespace Filters.Controllers
             }
         }
 
+        // ProfileAction：演示 ProfileAction 过滤器对于耗时测量的效果
+        [ProfileAction]
+        //[CustomAction]
+        public string FilterTest()
+        {
+            return "This is the FilterTest action";
+        }
+
     }
 }
