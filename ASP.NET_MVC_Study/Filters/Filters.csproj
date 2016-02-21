@@ -115,6 +115,8 @@
     <Compile Include="Infrastructure\CustomActionAttribute.cs" />
     <Compile Include="Infrastructure\CustomAuthAttribute.cs" />
     <Compile Include="Infrastructure\ProfileActionAttribute.cs" />
+    <Compile Include="Infrastructure\ProfileAllAttribute.cs" />
+    <Compile Include="Infrastructure\ProfileResultAttribute.cs" />
     <Compile Include="Infrastructure\RangeExceptionAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

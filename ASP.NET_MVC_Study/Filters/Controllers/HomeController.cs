@@ -40,10 +40,14 @@ namespace Filters.Controllers
 
         // ProfileAction：演示 ProfileAction 过滤器对于耗时测量的效果
         [ProfileAction]
+        // 对 ProfileAction 动作方法过滤器作为了一个补充
+        [ProfileResult]
+        // 使用内建的动作过滤器和结果过滤器
+        [ProfileAll]
         //[CustomAction]
         public string FilterTest()
         {
-            return "This is the FilterTest action";
+            return "This is the ActionFilterTest action";
         }
 
     }
