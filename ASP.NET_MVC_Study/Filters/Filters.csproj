@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SelectiveCacheController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -146,6 +147,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\RangeError.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SelectiveCache\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SelectiveCache\ChildAction.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Filters.Infrastructure
 {
+    [OutputCacheAttribute]
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class SimpleMessageAttribute : FilterAttribute, IActionFilter
     {
