@@ -21,7 +21,13 @@ namespace ControllerExtensibility
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            ControllerBuilder.Current.SetControllerFactory(new CustomControllerFactory());
+            //ControllerBuilder.Current.SetControllerFactory(new CustomControllerFactory());
+
+            //ControllerBuilder.Current.DefaultNamespaces.Add("MyControllerNamespace");
+            //ControllerBuilder.Current.DefaultNamespaces.Add("MyProbject.*");
+
+            ControllerBuilder.Current.SetControllerFactory(
+                new DefaultControllerFactory(new CustomControllerAtivator()));
         }
     }
 }
