@@ -25,5 +25,10 @@ namespace ControllerExtensibility.Controllers
             return View("Result", new Result { ControllerName = "Home", ActionName = "LocalIndex" });
         }
 
+        protected override void HandleUnknownAction(string actionName)
+        {
+            Response.Write(string.Format("You requested the {0} action", actionName));
+        }
+
     }
 }
