@@ -110,8 +110,10 @@
   <ItemGroup>
     <Compile Include="Controllers\ActionInvokerController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\FastController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RemoteDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -119,6 +121,7 @@
     <Compile Include="Infrastructure\CustomControllerAtivator.cs" />
     <Compile Include="Infrastructure\CustomControllerFactory.cs" />
     <Compile Include="Infrastructure\LocalAttribute.cs" />
+    <Compile Include="Models\RemoteService.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -144,6 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Result.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\RemoteData\Data.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
