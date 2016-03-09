@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "学习文档", "学习文�
 		学习文档\005_控制器和动作.docx = 学习文档\005_控制器和动作.docx
 		学习文档\006_过滤器.docx = 学习文档\006_过滤器.docx
 		学习文档\007_控制器可扩展性.docx = 学习文档\007_控制器可扩展性.docx
+		学习文档\008_视图.docx = 学习文档\008_视图.docx
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}"
@@ -44,6 +45,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filters.Tests", "Filters.Tests\Filters.Tests.csproj", "{C4E7B5C6-5DBC-4109-9FC4-1C02A29A400A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerExtensibility", "ControllerExtensibility\ControllerExtensibility.csproj", "{2664D030-C564-4DD6-8743-7C81ADF72EFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Views", "Views\Views.csproj", "{C027C357-EFB2-404B-8898-D21D5EBFB2AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,6 +110,10 @@ Global
 		{2664D030-C564-4DD6-8743-7C81ADF72EFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2664D030-C564-4DD6-8743-7C81ADF72EFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2664D030-C564-4DD6-8743-7C81ADF72EFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C027C357-EFB2-404B-8898-D21D5EBFB2AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C027C357-EFB2-404B-8898-D21D5EBFB2AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C027C357-EFB2-404B-8898-D21D5EBFB2AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C027C357-EFB2-404B-8898-D21D5EBFB2AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -126,5 +133,6 @@ Global
 		{196FEC2C-E895-463C-85F0-6D1D80E67033} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
 		{C4E7B5C6-5DBC-4109-9FC4-1C02A29A400A} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
 		{2664D030-C564-4DD6-8743-7C81ADF72EFA} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
+		{C027C357-EFB2-404B-8898-D21D5EBFB2AB} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
 	EndGlobalSection
 EndGlobal
