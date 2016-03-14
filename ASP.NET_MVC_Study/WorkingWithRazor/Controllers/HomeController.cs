@@ -18,5 +18,10 @@ namespace WorkingWithRazor.Controllers
             return View(names);
         }
 
+        public ActionResult List()
+        {
+            return View();
+        }
+
     }
 }
