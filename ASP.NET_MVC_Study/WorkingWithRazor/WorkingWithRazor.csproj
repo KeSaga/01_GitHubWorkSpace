@@ -219,6 +219,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Common\List.cshtml" />
+    <Content Include="Views\Shared\MyPartial.cshtml" />
+    <Content Include="Views\Shared\MyStrongTypedPartial.cshtml" />
+    <Content Include="Views\Home\Time.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
