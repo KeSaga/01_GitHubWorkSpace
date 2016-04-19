@@ -7,12 +7,12 @@
 
 <!--自定义的内联辅助器方法-->
 @*@helper ListArrayItems(string[] items)
-{
-    foreach (string str in items)
     {
-        <b>@str</b>
-    }
-}*@
+        foreach (string str in items)
+        {
+            <b>@str</b>
+        }
+    }*@
 
 <!DOCTYPE html>
 
@@ -24,21 +24,32 @@
 <body>
     <!--使用内联辅助器方法-->
     @*<div>
-        Here are the fruits: @ListArrayItems(ViewBag.Fruits)
-    </div>
-    <div>
-        Here are the cities: @ListArrayItems(ViewBag.Cities)
-    </div>*@
+            Here are the fruits: @ListArrayItems(ViewBag.Fruits)
+        </div>
+        <div>
+            Here are the cities: @ListArrayItems(ViewBag.Cities)
+        </div>*@
     <!--使用自定义的外部辅助器方法-->
-    <div>
-        Here are the fruits: @Html.ListArrayItems((string[])ViewBag.Fruits)
-    </div>
-    <div>
-        Here are the cities: @Html.ListArrayItems((string[])ViewBag.Cities)
-    </div>
-    <div>
+    @*<div>
+            Here are the fruits: @Html.ListArrayItems((string[])ViewBag.Fruits)
+        </div>
+        <div>
+            Here are the cities: @Html.ListArrayItems((string[])ViewBag.Cities)
+        </div>
+        <div>
+            Here is the message:
+            <p>@Model</p>
+        </div>*@
+    <!--演示字符串编码问题-->
+    <p>This is the content from the view:</p>
+    <div style="border:thin solid black;padding:10px">
         Here is the message:
         <p>@Model</p>
+    </div>
+
+    <p>This is the content from the helper method:</p>
+    <div style="border:thin solid black;padding:10px">
+        @Html.DisplayMessage(Model)
     </div>
 </body>
 </html>
