@@ -1,0 +1,23 @@
+﻿@model HelperMethods.Models.Person
+
+@{
+    ViewBag.Title = "CreatePerson";
+}
+
+<h2>CreatePerson</h2>
+
+<form action="/Home/CreatePerson" method="post">
+    <div class="dataElem">
+        <label>PersonId</label>
+        <input name="personId" value="@Model.PersonId"/>
+    </div>
+    <div class="dataElem">
+        <label>First Name</label>
+        <input name="firstName" value="@Model.FirstName" />
+    </div>
+    <div class="dataElem">
+        <label>Last Name</label>
+        <input name="lastName" value="@Model.LastName" />
+    </div>
+    <input type="submit" value="提交"/>
+</form>

@@ -4,13 +4,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <style type="text/css">
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        .dateElem {
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
     @RenderBody()
 
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @*@RenderSection("scripts", required: false)*@
 </body>
 </html>
