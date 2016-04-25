@@ -2,9 +2,36 @@
 
 @{
     ViewBag.Title = "CreatePerson";
+    Html.EnableClientValidation(false);
 }
 
 <h2>CreatePerson</h2>
+
+<!--使用模板辅助器方法-->
+@using (Html.BeginRouteForm("FormRoute", new { }, FormMethod.Post, new { @class = "personClass", data_formType = "person" }))
+{
+    <div class="dataElem">
+        <label>PersonId</label>
+        @Html.Editor("PersonId")
+    </div>
+    <div class="dataElem">
+        <label>First Name</label>
+        @Html.Editor("FirstName")
+    </div>
+    <div class="dataElem">
+        <label>Last Name</label>
+        @Html.EditorFor(m => m.LastName)
+    </div>
+    <div class="dataElem">
+        <label>Role</label>
+        @Html.EditorFor(m => m.Role)
+    </div>
+    <div class="dataElem">
+        <label>Birth Date</label>
+        @Html.EditorFor(m => m.BirthDate)
+    </div>
+    <input type="submit" value="提交" />
+}
 
 <!--直接使用HTML标签编写-->
 @*<form action="/Home/CreatePerson" method="post">
@@ -81,26 +108,26 @@
         <input type="submit" value="提交" />
     }*@
 
-@using (Html.BeginRouteForm("FormRoute",                        // 使用 BeginRouteForm 方法；指定路由名：FormRoute
-    new { },                                                    // 用于路由片段变量
-    FormMethod.Post,                                            // 用于 form 的 method 标签属性
-    new { @class = "personClass", data_formType = "person" }))  // 用于 form 的其他标签属性
-{
-    <div class="dataElem">
-        <label>PersonId</label>
-        @Html.TextBoxFor(m => m.PersonId)
-    </div>
-    <div class="dataElem">
-        <label>First Name</label>
-        @Html.TextBoxFor(m => m.FirstName)
-    </div>
-    <div class="dataElem">
-        <label>Last Name</label>
-        @Html.TextBoxFor(m => m.LastName)
-    </div>
-    <div class="dataElem">
-        <label>Role</label>
-        @Html.DropDownListFor(m => m.Role, new SelectList(Enum.GetNames(typeof(HelperMethods.Models.Role))))
-    </div>
-    <input type="submit" value="提交" />
-}
+@*@using (Html.BeginRouteForm("FormRoute",                        // 使用 BeginRouteForm 方法；指定路由名：FormRoute
+        new { },                                                    // 用于路由片段变量
+        FormMethod.Post,                                            // 用于 form 的 method 标签属性
+        new { @class = "personClass", data_formType = "person" }))  // 用于 form 的其他标签属性
+    {
+        <div class="dataElem">
+            <label>PersonId</label>
+            @Html.TextBoxFor(m => m.PersonId)
+        </div>
+        <div class="dataElem">
+            <label>First Name</label>
+            @Html.TextBoxFor(m => m.FirstName)
+        </div>
+        <div class="dataElem">
+            <label>Last Name</label>
+            @Html.TextBoxFor(m => m.LastName)
+        </div>
+        <div class="dataElem">
+            <label>Role</label>
+            @Html.DropDownListFor(m => m.Role, new SelectList(Enum.GetNames(typeof(HelperMethods.Models.Role))))
+        </div>
+        <input type="submit" value="提交" />
+    }*@
