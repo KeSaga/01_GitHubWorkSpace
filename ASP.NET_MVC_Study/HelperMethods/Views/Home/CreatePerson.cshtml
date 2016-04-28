@@ -10,6 +10,5 @@
 @using (Html.BeginRouteForm("FormRoute", new { }, FormMethod.Post, new { @class = "personClass", data_formType = "person" }))
 {
     @Html.EditorForModel()
-
     <input type="submit" value="提交" />
 }
