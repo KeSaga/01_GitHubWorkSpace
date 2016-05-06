@@ -15,6 +15,7 @@ namespace HelperMethods.Models
         [HiddenInput(DisplayValue = false)]
         public int PersonId { get; set; }
         [Display(Name = "First")]
+        [UIHint("MultilineText")]
         public string FirstName { get; set; }
         [Display(Name = "Last")]
         public string LastName { get; set; }
