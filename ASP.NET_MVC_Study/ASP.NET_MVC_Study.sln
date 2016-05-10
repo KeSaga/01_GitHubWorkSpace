@@ -16,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "学习文档", "学习文�
 		学习文档\008_视图.docx = 学习文档\008_视图.docx
 		学习文档\009_辅助器方法.docx = 学习文档\009_辅助器方法.docx
 		学习文档\010_模板辅助器方法.docx = 学习文档\010_模板辅助器方法.docx
+		学习文档\011_URL和Ajax辅助器方法.docx = 学习文档\011_URL和Ajax辅助器方法.docx
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}"

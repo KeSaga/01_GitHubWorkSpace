@@ -1,0 +1,30 @@
+﻿@using HelperMethods.Models
+@model IEnumerable<Person>
+
+@{
+    ViewBag.Title = "GetPeople";
+}
+
+<h2>Get People</h2>
+
+<table>
+    <thead><tr><th>First</th><th>Last</th><th>Role</th></tr></thead>
+    <tbody>
+        @foreach (Person p in Model)
+        {
+            <tr>
+                <td>@p.FirstName</td>
+                <td>@p.LastName</td>
+                <td>@p.Role</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.DropDownList("selectedRole", new SelectList(new[] { "All" }.Concat(Enum.GetNames(typeof(Role)))))
+        <button type="submit">提交</button>
+    </div>
+}
