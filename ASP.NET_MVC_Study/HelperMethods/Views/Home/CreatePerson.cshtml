@@ -9,6 +9,11 @@
 
 @using (Html.BeginRouteForm("FormRoute", new { }, FormMethod.Post, new { @class = "personClass", data_formType = "person" }))
 {
-    @Html.EditorForModel()
+    <div class="column">
+        @Html.EditorForModel()
+    </div>
+    <div class="column">
+        @Html.EditorFor(m => m.HomeAddress)
+    </div>
     <input type="submit" value="提交" />
 }

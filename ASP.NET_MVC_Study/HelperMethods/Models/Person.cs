@@ -8,22 +8,23 @@ using System.Web.Mvc;
 
 namespace HelperMethods.Models
 {
-    // DisplayName 也可以用于属性，但习惯上建议在模型类上应用，而在属性上使用 Display
-    [DisplayName("New Person")]
-    public class Person
+    //// DisplayName 也可以用于属性，但习惯上建议在模型类上应用，而在属性上使用 Display
+    //[DisplayName("New Person")]
+    [MetadataType(typeof(PersonMetaData))]
+    public partial class Person
     {
-        [HiddenInput(DisplayValue = false)]
+        //[HiddenInput(DisplayValue = false)]
         public int PersonId { get; set; }
-        [Display(Name = "First")]
-        [UIHint("MultilineText")]
+        //[Display(Name = "First")]
+        //[UIHint("MultilineText")]
         public string FirstName { get; set; }
-        [Display(Name = "Last")]
+        //[Display(Name = "Last")]
         public string LastName { get; set; }
-        [Display(Name = "Birth Date")]
-        [DataType(DataType.Date)]
+        //[Display(Name = "Birth Date")]
+        //[DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
         public Address HomeAddress { get; set; }
-        [Display(Name = "Approved")]
+        //[Display(Name = "Approved")]
         public bool IsApproved { get; set; }
         public Role Role { get; set; }
     }
