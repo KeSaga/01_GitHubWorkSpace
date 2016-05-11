@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace HelperMethods.Controllers
 {
-    public class PersonController : Controller
+    public class PeopleController : Controller
     {
         private Person[] personData =
         {
@@ -23,23 +23,20 @@ namespace HelperMethods.Controllers
             return View();
         }
 
-        public ActionResult GetPeople()
+        public PartialViewResult GetPeopleData(string selectedRole = "All")
         {
-            return View(personData);
-        }
-
-        [HttpPost]
-        public ActionResult GetPeople(string selectedRole)
-        {
-            if (selectedRole == null || selectedRole == "All")
-            {
-                return View(personData);
-            }
-            else
+            IEnumerable<Person> data = personData;
+            if (selectedRole != "All")
             {
                 Role selected = (Role)Enum.Parse(typeof(Role), selectedRole);
-                return View(personData.Where(p => p.Role == selected));
+                data = personData.Where(p => p.Role == selected);
             }
+            return PartialView(data);
+        }
+
+        public ActionResult GetPeople(string selectedRole = "All")
+        {
+            return View((object)selectedRole);
         }
 
     }
