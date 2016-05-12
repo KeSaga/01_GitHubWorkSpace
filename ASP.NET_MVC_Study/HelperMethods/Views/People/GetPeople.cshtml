@@ -5,11 +5,40 @@
     ViewBag.Title = "GetPeople";
     AjaxOptions ajaxOpts = new AjaxOptions
     {
-        UpdateTargetId = "tableBody"
+        UpdateTargetId = "tableBody",
+        Url = Url.Action("GetPeopleData"),
+        // 指定 HTML 元素的 ID，这是执行 Ajax 请求期间要显示的 HTML 元素
+        LoadingElementId = "loading",
+        // 指定动画持续的时间，用于显露由 LoadingElementId 指定的元素
+        LoadingElementDuration = 1000,
+        Confirm = "Do you wish to request new data"
     };
 }
 
+<script type="text/javascript">
+    function OnBegin() {
+        alert("This is the OnBegin Callback");
+    }
+
+    function OnSuccess(data) {
+        alert("This is the OnSuccess Callback: " + data);
+    }
+
+    function OnFailure(request, error) {
+        alert("This is the OnFailure Callback: " + error);
+    }
+
+    function OnComplete(request, status) {
+        alert("This is the OnComplete Callback: " + status);
+    }
+
+</script>
+
 <h2>Get People</h2>
+
+<div id="loading" class="load" style="display:none">
+    <p>数据加载中...</p>
+</div>
 
 <table id="tableBody">
     <thead><tr><th>First</th><th>Last</th><th>Role</th></tr></thead>
@@ -18,10 +47,29 @@
     </tbody>
 </table>
 
-@using (Ajax.BeginForm("GetPeopleData", ajaxOpts))
+@using (Ajax.BeginForm(ajaxOpts))
 {
     <div>
         @Html.DropDownList("selectedRole", new SelectList(new[] { "All" }.Concat(Enum.GetNames(typeof(Role)))))
         <button type="submit">提交</button>
     </div>
 }
+
+<div>
+    @foreach (string role in Enum.GetNames(typeof(Role)))
+    {
+        <div class="ajaxLink">
+            @Ajax.ActionLink(role, "GetPeople",
+            new { selectedRole = role },
+            new AjaxOptions
+            {
+                UpdateTargetId = "tableBody",
+                Url = Url.Action("GetPeopleData", new { selectedRole = role }),
+                OnBegin = "OnBegin",
+                OnFailure = "OnFailure",
+                OnSuccess = "OnSuccess",
+                OnComplete = "OnComplete"
+            })
+        </div>
+    }
+</div>
