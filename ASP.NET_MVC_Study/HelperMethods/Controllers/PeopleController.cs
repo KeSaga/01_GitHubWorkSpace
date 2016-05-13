@@ -23,7 +23,7 @@ namespace HelperMethods.Controllers
             return View();
         }
 
-        public PartialViewResult GetPeopleData(string selectedRole = "All")
+        private IEnumerable<Person> GetData(string selectedRole)
         {
             IEnumerable<Person> data = personData;
             if (selectedRole != "All")
@@ -31,7 +31,18 @@ namespace HelperMethods.Controllers
                 Role selected = (Role)Enum.Parse(typeof(Role), selectedRole);
                 data = personData.Where(p => p.Role == selected);
             }
-            return PartialView(data);
+            return data;
+        }
+
+        public JsonResult GetPeopleDataJson(string selectedRole = "All")
+        {
+            IEnumerable<Person> data = GetData(selectedRole);
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
+        public PartialViewResult GetPeopleData(string selectedRole = "All")
+        {
+            return PartialView(GetData(selectedRole));
         }
 
         public ActionResult GetPeople(string selectedRole = "All")
