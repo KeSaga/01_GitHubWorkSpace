@@ -5,13 +5,14 @@
     ViewBag.Title = "GetPeople";
     AjaxOptions ajaxOpts = new AjaxOptions
     {
-        UpdateTargetId = "tableBody",
+        //UpdateTargetId = "tableBody",
         Url = Url.Action("GetPeopleData"),
         // 指定 HTML 元素的 ID，这是执行 Ajax 请求期间要显示的 HTML 元素
         LoadingElementId = "loading",
         // 指定动画持续的时间，用于显露由 LoadingElementId 指定的元素
         LoadingElementDuration = 1000,
-        Confirm = "Do you wish to request new data"
+        //Confirm = "Do you wish to request new data"
+        OnSuccess = "processData"
     };
 }
 
@@ -75,7 +76,7 @@
             new AjaxOptions
             {
                 //UpdateTargetId = "tableBody",
-                Url = Url.Action("GetPeopleDataJson", new { selectedRole = role }),
+                Url = Url.Action("GetPeopleData", new { selectedRole = role }),
                 //OnBegin = "OnBegin",
                 //OnFailure = "OnFailure",
                 //OnSuccess = "OnSuccess",
