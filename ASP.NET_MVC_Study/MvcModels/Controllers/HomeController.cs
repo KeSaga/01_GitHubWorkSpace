@@ -18,10 +18,21 @@ namespace MvcModels.Controllers
             new Person{PersonId = 5 ,FirstName = "Anne",LastName = "Jones",Role = Role.Guest}
         };
 
-        public ActionResult Index(int id)
+        public ActionResult Index(int id = 1)
         {
             Person dataItem = personData.Where(p => p.PersonId == id).First();
             return View(dataItem);
+        }
+
+        public ActionResult CreatePerson()
+        {
+            return View(new Person());
+        }
+
+        [HttpPost]
+        public ActionResult CreatePerson(Person model)
+        {
+            return View("Index", model);
         }
 
     }
