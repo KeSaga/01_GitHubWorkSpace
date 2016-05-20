@@ -35,5 +35,24 @@ namespace MvcModels.Controllers
             return View("Index", model);
         }
 
+        public ActionResult DisplaySummary([Bind(Prefix = "HomeAddress", Exclude = "Country")]AddressSummary summary)
+        {
+            return View(summary);
+        }
+
+        public ActionResult Names(IList<string> names)
+        {
+            // 必须检查是否为空，且参数的默认值只能是常数或文字值
+            names = names ?? new List<string>();
+
+            return View(names);
+        }
+
+        public ActionResult Address(IList<AddressSummary> address)
+        {
+            address = address ?? new List<AddressSummary>();
+            return View(address);
+        }
+
     }
 }
