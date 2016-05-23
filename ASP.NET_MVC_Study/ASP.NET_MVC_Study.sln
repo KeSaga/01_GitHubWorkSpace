@@ -18,6 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "学习文档", "学习文�
 		学习文档\010_模板辅助器方法.docx = 学习文档\010_模板辅助器方法.docx
 		学习文档\011_URL和Ajax辅助器方法.docx = 学习文档\011_URL和Ajax辅助器方法.docx
 		学习文档\012_模型绑定.docx = 学习文档\012_模型绑定.docx
+		学习文档\013_模型验证.docx = 学习文档\013_模型验证.docx
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}"
@@ -57,6 +58,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperMethods", "HelperMethods\HelperMethods.csproj", "{AFF7D55D-2354-4357-AFDA-6169DD131525}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcModels", "MvcModels\MvcModels.csproj", "{B97F168E-8978-48A4-A9A9-2DC0086F6F40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelValidation", "ModelValidation\ModelValidation.csproj", "{1BF2AEE0-8D73-4363-B483-64A8F6CD6ABE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -136,6 +139,10 @@ Global
 		{B97F168E-8978-48A4-A9A9-2DC0086F6F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B97F168E-8978-48A4-A9A9-2DC0086F6F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B97F168E-8978-48A4-A9A9-2DC0086F6F40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BF2AEE0-8D73-4363-B483-64A8F6CD6ABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BF2AEE0-8D73-4363-B483-64A8F6CD6ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BF2AEE0-8D73-4363-B483-64A8F6CD6ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BF2AEE0-8D73-4363-B483-64A8F6CD6ABE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -159,5 +166,6 @@ Global
 		{2E1D0C38-043A-49D2-9D9A-95ADA817E9D6} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
 		{AFF7D55D-2354-4357-AFDA-6169DD131525} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
 		{B97F168E-8978-48A4-A9A9-2DC0086F6F40} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
+		{1BF2AEE0-8D73-4363-B483-64A8F6CD6ABE} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
 	EndGlobalSection
 EndGlobal

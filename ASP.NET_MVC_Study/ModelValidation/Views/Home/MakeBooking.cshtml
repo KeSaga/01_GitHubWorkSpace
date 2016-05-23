@@ -1,0 +1,15 @@
+﻿@model ModelValidation.Models.Appointment
+
+@{
+    ViewBag.Title = "Make A Booking";
+}
+
+<h4>Book an Appointment</h4>
+
+@using (Html.BeginForm())
+{
+    <p>Your name: @Html.EditorFor(m => m.ClinetName)</p>
+    <p>Appointment Date: @Html.EditorFor(m => m.Date)</p>
+    <p>@Html.EditorFor(m => m.TermsAccepted) I accept the terms $ conditions</p>
+    <input type="submit" value="Make Booking" />
+}
