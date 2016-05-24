@@ -130,6 +130,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\FutureDateAttribute.cs" />
+    <Compile Include="Infrastructure\MustBeTrueAttribute.cs" />
+    <Compile Include="Infrastructure\NoJoeOnMondaysAttribute.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
