@@ -1,7 +1,6 @@
-﻿using ModelValidation.Infrastructure;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace ModelValidation.Models
 {
@@ -12,6 +11,7 @@ namespace ModelValidation.Models
         public string ClinetName { get; set; }
 
         [DataType(DataType.Date)]
+        [Remote("ValidateDate", "Home")]
         public DateTime Date { get; set; }
 
         public bool TermsAccepted { get; set; }
