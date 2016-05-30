@@ -64,6 +64,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelValidation", "ModelVal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientFeatures", "ClientFeatures\ClientFeatures.csproj", "{B32F89D0-AC4F-4BB3-9D0C-D216427149B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServices", "WebServices\WebServices.csproj", "{2C3310AD-CFD6-4B7C-88EA-8F38053EC544}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -150,6 +152,10 @@ Global
 		{B32F89D0-AC4F-4BB3-9D0C-D216427149B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B32F89D0-AC4F-4BB3-9D0C-D216427149B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B32F89D0-AC4F-4BB3-9D0C-D216427149B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C3310AD-CFD6-4B7C-88EA-8F38053EC544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C3310AD-CFD6-4B7C-88EA-8F38053EC544}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C3310AD-CFD6-4B7C-88EA-8F38053EC544}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C3310AD-CFD6-4B7C-88EA-8F38053EC544}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -175,5 +181,6 @@ Global
 		{B97F168E-8978-48A4-A9A9-2DC0086F6F40} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
 		{1BF2AEE0-8D73-4363-B483-64A8F6CD6ABE} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
 		{B32F89D0-AC4F-4BB3-9D0C-D216427149B9} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
+		{2C3310AD-CFD6-4B7C-88EA-8F38053EC544} = {3A8FC75A-881E-4CC6-AEFE-B1BF7B820652}
 	EndGlobalSection
 EndGlobal
