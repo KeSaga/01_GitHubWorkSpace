@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.WebPages;
 
 namespace ClientFeatures
 {
@@ -16,6 +17,13 @@ namespace ClientFeatures
     {
         protected void Application_Start()
         {
+            DisplayModeProvider.Instance.Modes.Insert(0,
+                new DefaultDisplayMode("OperaTablet")
+                {
+                    ContextCondition = (context =>
+                        context.Request.UserAgent.IndexOf("Opera Tablet", StringComparison.OrdinalIgnoreCase) >= 0)
+                });
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
