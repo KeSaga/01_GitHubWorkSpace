@@ -3,6 +3,7 @@
 fieldset {
     padding-left: 0em;
     padding-right: 0em;
+    padding-bottom: 0em;
     border-color: darkslategray;
     border-bottom-width: 1em;
 }
@@ -45,14 +46,36 @@ code {
 
 /* --- 以下定义用于描述 项目内容 的样式，如示例、预览等 --- */
 
-#div_Content {
-    padding: 1em 2em 1em 2em;
+#div_Table {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
 }
 
-    #div_Content > h2 {
-        margin: 0em;
-        font-weight: bold;
-        font-size: large;
-        font-family: 'Microsoft YaHei';
-        color: darkslategray;
-    }
+div.row {
+    display: table-row;
+}
+
+div.cell {
+    display: table-cell;
+    border-bottom: solid darkslategray;
+    border-bottom-width: 0.3em;
+    padding: 1em 1em 1em 2em;
+}
+
+div.cell_exm {
+    width: 70%;
+}
+
+div.cell_view {
+    border-left: thin solid darkslategray;
+    border-top-left-radius: 10px 10px;
+}
+
+#div_Table h2 {
+    margin: 0em;
+    font-weight: bold;
+    font-size: large;
+    font-family: 'Microsoft YaHei';
+    color: darkslategray;
+}
