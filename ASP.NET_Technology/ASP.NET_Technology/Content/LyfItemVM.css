@@ -29,7 +29,6 @@ code {
 #div_Title {
     padding: 1em 2em;
     background-color: darkred;
-    /*margin: 0em;*/
 }
 
     #div_Title > h1 {
@@ -61,17 +60,25 @@ div.row {
 
 div.cell {
     display: table-cell;
-    padding: 0em;
-    margin: 0em;
+    padding: 0px;
 }
 
-div.cell_exm {
+div.cell_exm_h {
     width: 70%;
 }
 
-div.cell_view {
-    /*border-left: thin solid black;
-    border-top-left-radius: 10px 10px;*/
+div.cell_exm_b {
+    width: 70%;
+    border-left: thin solid black;
+    border-right: 1px solid black;
+}
+
+div.cell_view_h {
+}
+
+div.cell_view_b {
+    border-left: thin solid black;
+    border-right: 1px solid black;
 }
 
 #div_Table h2 {
@@ -81,14 +88,15 @@ div.cell_view {
     margin: 0em;
     padding: .5em 2em;
     color: white;
-    border-top: 1px solid black;
-    border-bottom: 5px solid black;
     background-color: darkred;
+}
+
+#div_h2_border {
+    padding-top: 1px;
+    border-bottom: 5px solid black;
 }
 
 #div_Table p {
     margin: 0em;
     padding: 2em 3em;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
 }
