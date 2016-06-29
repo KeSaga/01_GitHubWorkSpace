@@ -1,40 +1,41 @@
 ﻿/* --- LyfItemVM 的通用部分 --- */
 
 fieldset {
-    padding-left: 0em;
-    padding-right: 0em;
-    padding-bottom: 0em;
-    border-color: darkslategray;
-    border-bottom-width: 1em;
+    padding: 0em;
+    border-color: black;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
 }
 
 code {
     font-family: Consolas;
+    font-size: larger;
 }
 
 .hr1 {
     border: dotted;
     border-width: 1px;
-    border-color: darkslategray;
+    border-color: black;
 }
 
 .hr2 {
     border: solid;
     border-width: 1px;
-    border-color: darkslategray;
+    border-color: black;
 }
 
 /* --- 以下定义用于描述项目的 标题名称及其详细内容 的样式 --- */
 
 #div_Title {
-    padding: 1em 2em 1em 2em;
-    background-color: darkslategray;
+    padding: 1em 2em;
+    background-color: darkred;
+    /*margin: 0em;*/
 }
 
     #div_Title > h1 {
         margin: 0em;
         font-weight: bold;
-        font-size: x-large;
+        font-size: xx-large;
         font-family: 'Microsoft YaHei';
         color: white;
     }
@@ -54,13 +55,14 @@ code {
 
 div.row {
     display: table-row;
+    margin: 0em;
+    padding: 0em;
 }
 
 div.cell {
     display: table-cell;
-    border-bottom: solid darkslategray;
-    border-bottom-width: 0.3em;
-    padding: 1em 1em 1em 2em;
+    padding: 0em;
+    margin: 0em;
 }
 
 div.cell_exm {
@@ -68,14 +70,25 @@ div.cell_exm {
 }
 
 div.cell_view {
-    border-left: thin solid darkslategray;
-    border-top-left-radius: 10px 10px;
+    /*border-left: thin solid black;
+    border-top-left-radius: 10px 10px;*/
 }
 
 #div_Table h2 {
-    margin: 0em;
     font-weight: bold;
     font-size: large;
     font-family: 'Microsoft YaHei';
-    color: darkslategray;
+    margin: 0em;
+    padding: .5em 2em;
+    color: white;
+    border-top: 1px solid black;
+    border-bottom: 5px solid black;
+    background-color: darkred;
+}
+
+#div_Table p {
+    margin: 0em;
+    padding: 2em 3em;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
