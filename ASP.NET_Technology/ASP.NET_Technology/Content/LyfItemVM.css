@@ -2,7 +2,7 @@
 
 fieldset {
     padding: 0em;
-    border-color: black;
+    border-color: transparent;
     border-top-width: 10px;
     border-bottom-width: 10px;
 }
@@ -28,12 +28,11 @@ code {
 
 #div_Title {
     padding: 1em 2em;
-    background-color: darkred;
+    background-color: midnightblue;
 }
 
     #div_Title > h1 {
         margin: 0em;
-        font-weight: bold;
         font-size: xx-large;
         font-family: 'Microsoft YaHei';
         color: white;
@@ -69,31 +68,26 @@ div.cell_exm_h {
 
 div.cell_exm_b {
     width: 70%;
-    border-left: thin solid black;
-    border-right: 1px solid black;
 }
 
 div.cell_view_h {
+    opacity: 0.9;
 }
 
 div.cell_view_b {
-    border-left: thin solid black;
-    border-right: 1px solid black;
 }
 
 #div_Table h2 {
-    font-weight: bold;
     font-size: large;
     font-family: 'Microsoft YaHei';
     margin: 0em;
     padding: .5em 2em;
     color: white;
-    background-color: darkred;
+    background-color: darkgreen;
 }
 
 #div_h2_border {
     padding-top: 1px;
-    border-bottom: 5px solid black;
 }
 
 #div_Table p {
