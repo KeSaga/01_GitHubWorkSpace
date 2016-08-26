@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Lyf.DrawingLibrary._2D
 {
@@ -22,6 +23,19 @@ namespace Lyf.DrawingLibrary._2D
         #endregion
 
         #region 构造函数
+
+        /// <summary>
+        /// 初始化默认的 Border
+        /// </summary>
+        public Border() : base()
+        {
+        }
+
+        public Border(bool isVisible, Color color, float width) : base(color)
+        {
+            _width = width;
+            _isVisible = isVisible;
+        }
 
         /// <summary>
         /// 实现拷贝
