@@ -33,8 +33,8 @@ namespace Lyf.DrawingLibrary._2D
 
         public Border(bool isVisible, Color color, float width) : base(color)
         {
-            _width = width;
-            _isVisible = isVisible;
+            base._width = width;
+            base._isVisible = isVisible;
         }
 
         /// <summary>
