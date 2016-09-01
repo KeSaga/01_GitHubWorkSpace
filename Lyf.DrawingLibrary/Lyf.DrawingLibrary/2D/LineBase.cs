@@ -14,7 +14,7 @@ namespace Lyf.DrawingLibrary._2D
     /// 定义线段的基本属性
     /// </summary>
     [Serializable]
-    public class LineBase : ISerializable, ICloneable
+    abstract public class LineBase : ISerializable, ICloneable
     {
         #region 变量
 

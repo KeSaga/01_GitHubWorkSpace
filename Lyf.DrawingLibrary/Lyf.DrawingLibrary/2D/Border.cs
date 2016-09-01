@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using Lyf.DrawingLibrary.Common;
 
 namespace Lyf.DrawingLibrary._2D
 {
@@ -107,7 +108,7 @@ namespace Lyf.DrawingLibrary._2D
         protected Border(SerializationInfo info, StreamingContext context) : base(info, context)
         {
             // 'schema' 值是文件版本号参数
-            int sch = info.GetInt32("schema");
+            int sch = info.GetInt32(CommonConsts.SCHEMASTRING);
 
             this._inflateFactor = info.GetSingle("inflateFactor");
         }
@@ -162,7 +163,7 @@ namespace Lyf.DrawingLibrary._2D
         {
             base.GetObjectData(info, context);
 
-            info.AddValue("schema", schema);
+            info.AddValue(CommonConsts.SCHEMASTRING, schema);
             info.AddValue("inflateFactor", _inflateFactor);
         }
 

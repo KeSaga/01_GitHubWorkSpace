@@ -45,6 +45,7 @@
     <Compile Include="2D\Border.cs" />
     <Compile Include="2D\Chart.cs" />
     <Compile Include="2D\CurveItem.cs" />
+    <Compile Include="2D\CurveList.cs" />
     <Compile Include="2D\GraphPane.cs" />
     <Compile Include="2D\LineBase.cs" />
     <Compile Include="2D\Margin.cs" />
@@ -52,11 +53,11 @@
     <Compile Include="2D\PaneBase.cs" />
     <Compile Include="2D\PaneList.cs" />
     <Compile Include="2D\Types.cs" />
+    <Compile Include="Common\CommonConsts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="3D\" />
-    <Folder Include="Common\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
