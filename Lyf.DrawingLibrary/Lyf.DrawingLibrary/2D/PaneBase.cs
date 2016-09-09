@@ -116,7 +116,7 @@ namespace Lyf.DrawingLibrary._2D
         #endregion
 
         #region 函数
-        
+
         /// <summary>
         /// 创建当前实例的一个浅拷贝
         /// </summary>
@@ -151,7 +151,7 @@ namespace Lyf.DrawingLibrary._2D
 
             // Clip everything to the rect
             g.SetClip(_rect);
-            
+
             // Reset the clipping
             g.ResetClip();
         }
@@ -165,7 +165,7 @@ namespace Lyf.DrawingLibrary._2D
                             _rect.Top + _margin.Top * scaleFactor,
                             _rect.Width - scaleFactor * (_margin.Left + _margin.Right),
                             _rect.Height - scaleFactor * (_margin.Top + _margin.Bottom));
-            
+
             return innerRect;
         }
 
@@ -190,7 +190,7 @@ namespace Lyf.DrawingLibrary._2D
         {
             float scaleFactor; //, xInch, yInch;
             const float ASPECTLIMIT = 1.5F;
-            
+
             // Assume the standard width (BaseDimension) is 8.0 inches
             // Therefore, if the rect is 8.0 inches wide, then the fonts will be scaled at 1.0
             // if the rect is 4.0 inches wide, the fonts will be half-sized.
@@ -230,6 +230,19 @@ namespace Lyf.DrawingLibrary._2D
                 g.CompositingQuality = CompositingQuality.HighQuality;
                 g.InterpolationMode = InterpolationMode.HighQualityBicubic;
             }
+        }
+
+        public RectangleF CalcClientRect(Graphics g, float scaleFactor)
+        {
+            // chart rect starts out at the full pane rect.  It gets reduced to make room for the legend,
+            // scales, titles, etc.
+            RectangleF innerRect = new RectangleF(
+                            _rect.Left + _margin.Left * scaleFactor,
+                            _rect.Top + _margin.Top * scaleFactor,
+                            _rect.Width - scaleFactor * (_margin.Left + _margin.Right),
+                            _rect.Height - scaleFactor * (_margin.Top + _margin.Bottom));
+
+            return innerRect;
         }
 
         #endregion
