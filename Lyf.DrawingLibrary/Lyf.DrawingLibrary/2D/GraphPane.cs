@@ -93,13 +93,21 @@ namespace Lyf.DrawingLibrary._2D
             _chart = new Chart();
         }
 
+        /// <summary>
+        /// 复制一个 GraphPane 对象（实现拷贝）
+        /// </summary>
+        /// <param name="gPane"></param>
         public GraphPane(GraphPane gPane) : base(gPane)
         {
             _isIgnoreInitial = gPane.IsIgnoreInitial;
             _isBoundedRanges = gPane.IsBoundedRanges;
             _chart = gPane.Chart.Clone();
         }
-
+        /// <summary>
+        /// 用于反序列化的构造函数
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
         protected GraphPane(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
@@ -128,11 +136,19 @@ namespace Lyf.DrawingLibrary._2D
 
         #region 函数
 
+        /// <summary>
+        /// 深度拷贝的函数
+        /// </summary>
+        /// <returns></returns>
         public GraphPane Clone()
         {
             return new GraphPane(this);
         }
-
+        /// <summary>
+        /// 实现反序列化的函数
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
@@ -145,13 +161,18 @@ namespace Lyf.DrawingLibrary._2D
             info.AddValue("isBoundedRanges", _isBoundedRanges);
             info.AddValue("isIgnoreMissing", _isIgnoreMissing);
         }
-
+        /// <summary>
+        /// 该函数用于当坐标轴的比例范围发生变化时，基于当前的数据范围重新计算坐标轴的比例范围
+        /// </summary>
         public void AxisChange()
         {
             using (Graphics g = Graphics.FromHwnd(IntPtr.Zero))
                 AxisChange(g);
         }
-
+        /// <summary>
+        /// 该函数用于当坐标轴的比例范围发生变化时，基于当前的数据范围重新计算坐标轴的比例范围
+        /// </summary>
+        /// <param name="g"></param>
         public void AxisChange(Graphics g)
         {
             float scaleFactor = this.CalcScaleFactor();
@@ -167,57 +188,66 @@ namespace Lyf.DrawingLibrary._2D
 
             base.Draw(g);
 
-            if (_rect.Width <= 1 || _rect.Height <= 1)
-                return;
+            if (_rect.Width <= 1 || _rect.Height <= 1) return;
 
-            // Clip everything to the rect
+            // 将剪辑区设置为 RectangleF 类型结构指定的矩形
             g.SetClip(_rect);
 
-            // calculate scaleFactor on "normal" pane size (BaseDimension)
+            // 定义比例因子
             float scaleFactor = this.CalcScaleFactor();
 
 
             // if the size of the ChartRect is determined automatically, then do so
             // otherwise, calculate the legendrect, scalefactor, hstack, and legendwidth parameters
             // but leave the ChartRect alone
+            // 如果 ChartRect 设置为自动，则根据比例因子重新计算，否则将不修改 Chart Rect 的值
             if (_chart._isRectAuto) _chart._rect = CalcChartRect(g, scaleFactor);
             else CalcChartRect(g, scaleFactor);
 
-            // do a sanity check on the ChartRect
+            // 检测 Chart Rect 的完整性
             if (_chart._rect.Width < 1 || _chart._rect.Height < 1) return;
 
-            // Border the axis itself
+            // 设置边框
             _chart.Border.Draw(g, this, scaleFactor, _chart._rect);
-            // Reset the clipping
+
+            // 重置剪辑区
             g.ResetClip();
 
         }
 
+        /// <summary>
+        /// 基于 <see cref="PaneBase.Rect"/> 计算 <see cref="Chart.Rect"/>
+        /// </summary>
+        /// <param name="g"></param>
+        /// <returns></returns>
         public RectangleF CalcChartRect(Graphics g)
         {
             return CalcChartRect(g, CalcScaleFactor());
         }
-
+        /// <summary>
+        /// 基于 <see cref="PaneBase.Rect"/> 计算 <see cref="Chart.Rect"/>
+        /// </summary>
+        /// <param name="g"></param>
+        /// <returns></returns>
         public RectangleF CalcChartRect(Graphics g, float scaleFactor)
         {
-            // chart rect starts out at the full pane rect less the margins
-            //   and less space for the Pane title
-            RectangleF clientRect = this.CalcClientRect(g, scaleFactor);
+            // 指定绘图区域的大小为界于图板边界和图板标题之间
+            RectangleF clientRect = base.CalcClientRect(g, scaleFactor);
             
-            // actual minimum axis space for the left side of the chart rect
+            // 绘图区域的左边界的最小坐标轴空间
             float minSpaceL = 0;
-            // actual minimum axis space for the right side of the chart rect
+            // 绘图区域的右边界的最小坐标轴空间
             float minSpaceR = 0;
-            // actual minimum axis space for the bottom side of the chart rect
+            // 绘图区域的底边界的最小坐标轴空间
             float minSpaceB = 0;
-            // actual minimum axis space for the top side of the chart rect
+            // 绘图区域的上边界的最小坐标轴空间
             float minSpaceT = 0;
-            
+
             float spaceB = 0, spaceT = 0;
-            
+
             float totSpaceL = 0;
             float totSpaceR = 0;
-            
+
             RectangleF tmpRect = clientRect;
 
             totSpaceL = Math.Max(totSpaceL, minSpaceL);
@@ -229,7 +259,7 @@ namespace Lyf.DrawingLibrary._2D
             tmpRect.Width -= totSpaceL + totSpaceR;
             tmpRect.Height -= spaceT + spaceB;
             tmpRect.Y += spaceT;
-            
+
             return tmpRect;
         }
 
