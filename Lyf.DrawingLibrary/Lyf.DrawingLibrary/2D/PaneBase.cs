@@ -24,44 +24,69 @@ namespace Lyf.DrawingLibrary._2D
 
         #region 变量
 
+        /// <summary>
+        /// 定义被渲染图板区域内的区域面积，单位是像素
+        /// </summary>
         protected RectangleF _rect;
-
+        /// <summary>
+        /// 用于存储 <see cref="PaneBase"/> 的边界值
+        /// </summary>
         internal Margin _margin;
-
+        /// <summary>
+        /// 用于控制笔宽是否根据图形区域的尺寸进行合适的缩放。
+        /// 如果 <see cref="IsFontsScaled"/> 为 false 则将忽
+        /// 略 <see cref="IsPenWidthScaled"/> 的值，否则，将
+        /// 允许缩放。
+        /// </summary>
         protected bool _isPenWidthScaled;
-
+        /// <summary>
+        /// 用于为 <see cref="Rect"/> 的边界存储 <see cref="Border"/> 数据
+        /// </summary>
         protected Border _border;
-
+        /// <summary>
+        /// 用于定义图板区域的基础尺寸。字体、刻度、间隙等都将按此进行缩放
+        /// </summary>
         protected float _baseDimension;
 
         #endregion
 
         #region 属性
 
+        /// <summary>
+        /// 定义被渲染图板区域内的区域面积，单位是像素
+        /// </summary>
         public RectangleF Rect
         {
             get { return _rect; }
             set { _rect = value; }
         }
-
+        /// <summary>
+        /// 获取或设置 <see cref="Border"/> 类的实例，以便围绕 <see cref="Rect"/> 绘制边框
+        /// </summary>
         public Border Border
         {
             get { return _border; }
             set { _border = value; }
         }
-
+        /// <summary>
+        /// 获取或设置 <see cref="Margin"/> 实例，以便控制 <see cref="PaneBase.Rect"/> 和图表上渲染内容间的空余空间
+        /// </summary>
         public Margin Margin
         {
             get { return _margin; }
             set { _margin = value; }
         }
-
+        /// <summary>
+        /// 用于定义图板区域的基础尺寸。字体、刻度、间隙等都将按此进行缩放
+        /// </summary>
         public float BaseDimension
         {
             get { return _baseDimension; }
             set { _baseDimension = value; }
         }
-
+        /// <summary>
+        /// 获取或设置一个布尔值，用于控制笔宽是否根据图形区域的尺寸进行缩放
+        /// </summary>
         public bool IsPenWidthScaled
         {
             get { return _isPenWidthScaled; }
