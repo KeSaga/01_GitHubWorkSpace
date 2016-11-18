@@ -46,7 +46,9 @@
     <Compile Include="2D\Chart.cs" />
     <Compile Include="2D\CurveItem.cs" />
     <Compile Include="2D\CurveList.cs" />
+    <Compile Include="2D\GapLabel.cs" />
     <Compile Include="2D\GraphPane.cs" />
+    <Compile Include="2D\Label.cs" />
     <Compile Include="2D\LineBase.cs" />
     <Compile Include="2D\Margin.cs" />
     <Compile Include="2D\MasterPane.cs" />

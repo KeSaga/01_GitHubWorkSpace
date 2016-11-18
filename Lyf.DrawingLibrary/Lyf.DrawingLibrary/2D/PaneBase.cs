@@ -28,6 +28,17 @@ namespace Lyf.DrawingLibrary._2D
         /// 定义被渲染图板区域内的区域面积，单位是像素
         /// </summary>
         protected RectangleF _rect;
+        /// <summary>Private field that holds the main title of the pane.  Use the
+        /// public property <see cref="Title"/> to access this value.
+        /// </summary>
+        protected GapLabel _title;
+        /// <summary>
+        /// Private field that stores the user-defined tag for this <see cref="PaneBase"/>.  This tag
+        /// can be any user-defined value.  If it is a <see cref="String"/> type, it can be used as
+        /// a parameter to the <see cref="PaneList.IndexOfTag"/> method.  Use the public property
+        /// <see cref="Tag"/> to access this value.
+        /// </summary>
+        protected object _tag;
         /// <summary>
         /// 用于存储 <see cref="PaneBase"/> 的边界值
         /// </summary>
@@ -60,6 +71,39 @@ namespace Lyf.DrawingLibrary._2D
             get { return _rect; }
             set { _rect = value; }
         }
+
+        /// <summary>
+        /// Gets the <see cref="Label" /> instance that contains the text and attributes of the title.
+        /// This text can be multiple lines separated by newline characters ('\n').
+        /// </summary>
+        /// <seealso cref="FontSpec"/>
+        /// <seealso cref="Default.FontColor"/>
+        /// <seealso cref="Default.FontBold"/>
+        /// <seealso cref="Default.FontItalic"/>
+        /// <seealso cref="Default.FontUnderline"/>
+        /// <seealso cref="Default.FontFamily"/>
+        /// <seealso cref="Default.FontSize"/>
+        public Label Title
+        {
+            get { return _title; }
+        }
+
+        /// <summary>
+        /// Gets or sets the user-defined tag for this <see cref="PaneBase"/>.  This tag
+        /// can be any user-defined value.  If it is a <see cref="String"/> type, it can be used as
+        /// a parameter to the <see cref="PaneList.IndexOfTag"/> method.
+        /// </summary>
+        /// <remarks>
+        /// Note that, if you are going to Serialize Example data, then any type
+        /// that you store in <see cref="Tag"/> must be a serializable type (or
+        /// it will cause an exception).
+        /// </remarks>
+        public object Tag
+        {
+            get { return _tag; }
+            set { _tag = value; }
+        }
+
         /// <summary>
         /// 获取或设置 <see cref="Border"/> 类的实例，以便围绕 <see cref="Rect"/> 绘制边框
         /// </summary>
@@ -151,6 +195,11 @@ namespace Lyf.DrawingLibrary._2D
             return this.MemberwiseClone() as PaneBase;
         }
 
+        /// <summary>
+        /// 反序列化的函数方法
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
@@ -163,24 +212,39 @@ namespace Lyf.DrawingLibrary._2D
             info.AddValue("margin", _margin);
         }
 
+        /// <summary>
+        /// 在指定的 <see cref="Graphics"/> 设备中实现与 <see cref="PaneBase"/> 相关联的渲染操作。
+        /// 具体逻辑将通过其子类实现
+        /// </summary>
+        /// <param name="g"></param>
         public virtual void Draw(Graphics g)
         {
             if (_rect.Width <= 1 || _rect.Height <= 1)
                 return;
 
             // calculate scaleFactor on "normal" pane size (BaseDimension)
+            // 在“普通”模式的图板区域尺寸上计算“scaleFactor”
             float scaleFactor = this.CalcScaleFactor();
 
-            // Fill the pane background and draw a border around it			
+            // Fill the pane background and draw a border around it
+            // 填充图板背景并绘制环绕它的边框
             DrawPaneFrame(g, scaleFactor);
 
             // Clip everything to the rect
+            // 剪切所有元素到“rect”中
             g.SetClip(_rect);
 
             // Reset the clipping
+            // 重置剪切板
             g.ResetClip();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="scaleFactor"></param>
+        /// <returns></returns>
         public RectangleF CalcScaleFactor(Graphics g, float scaleFactor)
         {
             // chart rect starts out at the full pane rect.  It gets reduced to make room for the legend,
@@ -194,6 +258,11 @@ namespace Lyf.DrawingLibrary._2D
             return innerRect;
         }
 
+        /// <summary>
+        /// 绘制环绕 <see cref="Rect"/> 区域的边框
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="scaleFactor"></param>
         public void DrawPaneFrame(Graphics g, float scaleFactor)
         {
 
@@ -201,16 +270,28 @@ namespace Lyf.DrawingLibrary._2D
             // new RectangleF( 0, 0, 100, 100 ), which should be 100 pixels wide, we cover
             // from 0 through 99.  The draw routines normally cover from 0 through 100, which is
             // actually 101 pixels wide.
+            // 对于 'Rect' 的宽和高，都要减少一个像素，因此对于这样一个长方形
+            // 'new RectangleF(0,0,100,100)' 需要具有 100 像素的宽，
+            // 我们是从 0 到 99 进行处理的。而对于正常的绘制过程是从 0 到 100 进行处理的，也就是实际宽度为 101 像素
             RectangleF rect = new RectangleF(_rect.X, _rect.Y, _rect.Width - 1, _rect.Height - 1);
 
             _border.Draw(g, this, scaleFactor, rect);
         }
 
+        /// <summary>
+        /// 重置 <see cref="Rect"/> 的大小。可重载该虚函数，以便根据具体情况实现相应的重置算法
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="rect"></param>
         public virtual void ReSize(Graphics g, RectangleF rect)
         {
             _rect = rect;
         }
 
+        /// <summary>
+        /// 基于当前 <see cref="Rect"/> 的大小与 <see cref="Default.BaseDimension"/> 的比例来计算比例因数
+        /// </summary>
+        /// <returns></returns>
         public float CalcScaleFactor()
         {
             float scaleFactor; //, xInch, yInch;
@@ -220,8 +301,13 @@ namespace Lyf.DrawingLibrary._2D
             // Therefore, if the rect is 8.0 inches wide, then the fonts will be scaled at 1.0
             // if the rect is 4.0 inches wide, the fonts will be half-sized.
             // if the rect is 16.0 inches wide, the fonts will be double-sized.
+            // 假设标准宽度 'BaseDimension' 是 8.0 英寸
+            // 因此，如果 'rect' 是 8.0 英寸，那么字体的缩放因子将是 1.0
+            // 如果 'rect' 是 4.0 英寸，那么字体的缩放因子将是 0.5（标准值的一半）
+            // 如果 'rect' 是 16.0 英寸，那么字体的缩放因子将是 2.0（标准值的两倍）
 
             // Scale the size depending on the client area width in linear fashion
+            // 比例因子的大小取决于线性样式下客户区域的宽度
             if (_rect.Height <= 0)
                 return 1.0F;
             float length = _rect.Width;
@@ -234,18 +320,30 @@ namespace Lyf.DrawingLibrary._2D
             scaleFactor = length / (_baseDimension * 72F);
 
             // Don't let the scaleFactor get ridiculous
+            // 避免 scaleFactor 超出合理范围
             if (scaleFactor < 0.1F)
                 scaleFactor = 0.1F;
 
             return scaleFactor;
         }
 
+        /// <summary>
+        /// 计算笔宽的比例因子，引入 'scaleFactor' 参数，并且设置图板的 <see cref="IsPenWidthScaled"/> 属性
+        /// </summary>
+        /// <param name="penWidth"></param>
+        /// <param name="scaleFactor"></param>
+        /// <returns></returns>
         public float ScaledPenWidth(float penWidth, float scaleFactor)
         {
             if (_isPenWidthScaled) return penWidth * scaleFactor;
             else return penWidth;
         }
 
+        /// <summary>
+        /// 用适当的 '' 设置构建一个 <see cref="Graphics"/> 实例
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="isAntiAlias"></param>
         internal void SetAntiAliasMode(Graphics g, bool isAntiAlias)
         {
             if (isAntiAlias)
@@ -257,10 +355,17 @@ namespace Lyf.DrawingLibrary._2D
             }
         }
 
+        /// <summary>
+        /// 基于 <see cref="PaneBase.Rect"/> 计算客户区域长方形
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="scaleFactor"></param>
+        /// <returns></returns>
         public RectangleF CalcClientRect(Graphics g, float scaleFactor)
         {
             // chart rect starts out at the full pane rect.  It gets reduced to make room for the legend,
             // scales, titles, etc.
+            // 客户区域长方形（即绘图区域）需留出一些空余用于放置图例、比例值、标题等
             RectangleF innerRect = new RectangleF(
                             _rect.Left + _margin.Left * scaleFactor,
                             _rect.Top + _margin.Top * scaleFactor,
